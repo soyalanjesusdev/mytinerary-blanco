@@ -1,5 +1,5 @@
 import "../index";
-import wallpaperbetter from "../components/wallpaperbetter.jpg";
+import wallpaperbetter from "../Components/wallpaperbetter.jpg";
 
 export default function Cities() {
   return (
