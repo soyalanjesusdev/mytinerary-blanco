@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SlideNav from "./components/SlideNav.js";
+import SlideNav from "./Components/SlideNav.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-
-
-import Home from "./pages/Home";
-import Cities from "./pages/Cities.js";
+import Home from "./Pages/Home";
+import Cities from "./Pages/Cities";
 
 export default function App() {
   return (
