@@ -9,8 +9,11 @@ import Cities from "./Pages/Cities";
 export default function App() {
   return (
     <>
-      <SlideNav />
-      <Home />
+    <Home />
+    <SlideNav />
+     
+      
+     
       <div>
         <BrowserRouter>
           <div>

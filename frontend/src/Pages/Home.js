@@ -1,22 +1,31 @@
+import React from 'react';
 import "../index";
-import wallpaperbetter from "../Components/wallpaperbetter.jpg";
+import Video from "../Components//asset/Sunrise30850.mp4";
 
 export default function Cities() {
   return (
     <div className="container-fluid" id="hero">
       <div className="row">
         <div className="WelcomeMessage">
-          <h1>Welcome to the best place to find your perfect wallpaper!</h1>
-          <p> We have a wide range of wallpaper for you to choose from. </p>
+        
         </div>
-        <div className="wallpaperbetterFather">
-          <img
-            className="wallpaperbetter"
-            src={wallpaperbetter}
-            alt="wallpaperbetter"
-          />
+        
+          <div className="VideoFather">
+          <video 
+          className="Video"
+            src={Video}
+            autoPlay
+            loop
+            muted
+            type="video/mp4"
+            />
+            </div>
         </div>
-      </div>
-    </div>
+        </div>
+        
+
+         
+           
+     
   );
 }

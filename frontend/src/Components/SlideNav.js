@@ -7,18 +7,16 @@ import Logo from "./asset/boarding_pass_icon_151970.png";
 export default function Navegacion() {
   return (
       <>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
     <div class="text-center">
-    <img width = "200" height = "150"
+    <img width = "150" height = "100"
             className="Logo"
             src={Logo}
             alt="Logo"
           />
-    
     </div>
-     
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
