@@ -11,9 +11,6 @@ export default function App() {
     <>
     <Home />
     <SlideNav />
-     
-      
-     
       <div>
         <BrowserRouter>
           <div>
