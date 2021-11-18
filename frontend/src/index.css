@@ -1,8 +1,42 @@
-body {
+html * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 
+.footer {
+  background-color: #38ce38;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+.main-home{
+  background-color: #5515bd;
+  text-align: center;
+  flex: 6;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
 
+}
+
+.app-header{
+  background-color: #eb8e14;
+  
+  flex: 1;
+
+}
+
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  
+}

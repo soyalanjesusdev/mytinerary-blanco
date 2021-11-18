@@ -4,7 +4,7 @@ import Logo from "./asset/boarding_pass_icon_151970.png";
 
 
 
-export default function Navegacion() {
+export default function Navigation() {
   return (
       <>
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top static-top">
@@ -47,3 +47,4 @@ export default function Navegacion() {
     </>
   );
 }
+

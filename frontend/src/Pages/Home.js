@@ -1,31 +1,23 @@
-import React from 'react';
-import "../index";
-import Video from "../Components//asset/Sunrise30850.mp4";
+import React from "react";
+import Navbar from "../components/Navbar.js";
+import Header from "../components/Header.js";
+import Footer from "../components/Footer.js";
 
-export default function Cities() {
-  return (
-    <div className="container-fluid" id="hero">
-      <div className="row">
-        <div className="WelcomeMessage">
-        
-        </div>
-        
-          <div className="VideoFather">
-          <video 
-          className="Video"
-            src={Video}
-            autoPlay
-            loop
-            muted
-            type="video/mp4"
-            />
-            </div>
-        </div>
-        </div>
-        
 
-         
-           
+export default class Home extends React.Component {
+  render() {
+    return (
+    <div className="contenedor">
+     <Navbar />
+      <Header />
+      
+    <main className="main-home">
      
-  );
+        
+
+    </main>
+    <Footer />
+    </div>
+    );
+  }
 }
