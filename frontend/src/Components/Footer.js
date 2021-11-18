@@ -1,24 +1,19 @@
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="#">
-                <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <p>© 2018 MyTinerary. All rights reserved.</p>
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <ul className="social-icons">
-                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+  return (
+       <footer>
+    <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="#">Services</a></li>
+        <li class="list-inline-item"><a href="#">About</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p class="copyright">Company Name © 2018</p>
+</footer>
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    )
-}
+
+  );
+};
 
 export default Footer;

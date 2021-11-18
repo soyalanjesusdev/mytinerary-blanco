@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar.js";
 import Header from "../components/Header.js";
 import Footer from "../components/Footer.js";
+import Video from "../components/Video.js";
 
 
 export default class Home extends React.Component {
@@ -10,12 +11,13 @@ export default class Home extends React.Component {
     <div className="contenedor">
      <Navbar />
       <Header />
+      <Video/>
       
-    <main className="main-home">
      
-        
-
+    <main className="main-home">
+    
     </main>
+    
     <Footer />
     </div>
     );
