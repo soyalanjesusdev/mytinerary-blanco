@@ -94,23 +94,23 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-@import "~slick-carousel/slick/slick.css"; 
-@import "~slick-carousel/slick/slick-theme.css";
+  @import "~slick-carousel/slick/slick.css"; 
+  @import "~slick-carousel/slick/slick-theme.css";
 
- .carrusel{
- 
-  width: 40%;
-  margin: 15rem auto;
-  height: 570px;
+  .carrusel{
   
+    width: 40%;
+    margin: 15rem auto;
+    height: 570px;
+    
 
-}
+  }
 
-.m-2{
-  
-  width: 90%;
-  height: 10rem auto;
-  margin: auto;
-  
-} 
+  .m-2{
+    
+    width: 90%;
+    height: 10rem auto;
+    margin: auto;
+    
+  } 
 
