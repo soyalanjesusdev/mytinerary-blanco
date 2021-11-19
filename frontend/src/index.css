@@ -5,50 +5,32 @@ html * {
 }
 
 
-.footer {
-  background-color: #38ce38;
-  text-align: center;
-  flex: 1;
-  z-index: 1;
-  
+.navbar *{
+  backdrop-filter: blur(5px);
+  color: #fff;
 }
-.main-home{
+.main-home {
   background-color: #5515bd;
   text-align: center;
-  
-  
-  
-  
-
 }
 
-.app-header{
-  background-color: #eb8e14;
-  flex: 1;
-}
-
-
- .contenedor{
+.contenedor {
   display: flex;
   flex-direction: column;
-  
-
-  
-  
 }
-.videos{
+
+.videos {
   height: 100vh;
   width: 100%;
   object-fit: contain;
-  box-shadow: inset 0 0 0 1000px rgb(0,0,0,0.6);
+  box-shadow: inset 0 0 0 1000px rgb(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
-.video{
+.video {
   object-fit: cover;
   width: 100%;
   height: 100vh;
@@ -56,26 +38,24 @@ html * {
   z-index: -1;
 }
 
-
-.container-body{
+.container-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex: 1;
   background-color: #eb8e14;
-  width: 100%;  
+  width: 100%;
   height: 15vh;
+  z-index: -1;
 }
 
-
-
 /* Scrollbar */
-
 
 body::-webkit-scrollbar {
   width: 15px;
 }
+
 body::-webkit-scrollbar-track {
   /* -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); */
   /* box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); */
@@ -86,6 +66,7 @@ body::-webkit-scrollbar-track {
   );
   /* border-radius: 15px; */
 }
+
 body::-webkit-scrollbar-thumb {
   background-color: #6a850aea;
   border-radius: 10px;
@@ -93,51 +74,106 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
-  @import "~slick-carousel/slick/slick.css"; 
-  @import "~slick-carousel/slick/slick-theme.css";
+.carrusel {
+  width: 40%;
+  margin: 15rem auto;
+  height: 570px;
+}
 
-  .carrusel{
+.m-2 {
+  width: 90%;
+  height: 10rem auto;
+  margin: auto;
+}
+
+
+
+
+.fotter {
+  background-color: #000000;
+  height: auto;
+  font-family: 'open sans';
+  padding-top: 40px;
+  color: #ffffff;
   
-    width: 40%;
-    margin: 15rem auto;
-    height: 570px;
-    
+}
 
-  }
 
-  .m-2{
-    
-    width: 90%;
-    height: 10rem auto;
-    margin: auto;
-    
-  } 
-
-.fotter{
-  background-image: url(./components/asset/footer2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  height: 50vh;
-  width: 100%;
+.footer-botton{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  text-shadow: 2px 2px black;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.fotter-content h3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8 rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+
+}
+
+.fotter-content p{
+max-width: 500px;
+ margin: 10px auto;
+ line-height: 28px;
+ font-size: 14px;
+}
+
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+
+.socials li{
+  margin: 0 10px;
+
+}
+
+.socials a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+.socials a i{
+  font-size: 1.5rem;
+  transition: color .4s ease;
+  
+}
+.socials a:hover{
+  color: #34e492;
+}
+
+.footer.bottom{
+  background: #000000;
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+
+}
+
+.footer.bottom p{
+
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
  
+}
 
-  
-
-
-
-
-  
-  
+.footer.bottom span{
+  text-transform: uppercase;
+  opacity: .4;
+font-weight: 200;
 }

@@ -7,7 +7,7 @@ import Logo from "./asset/boarding_pass_icon_151970.png";
 export default function Navigation() {
   return (
       <>
-  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark  fixed-top static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
     <div class="text-center">

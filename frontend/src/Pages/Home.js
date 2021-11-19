@@ -14,13 +14,12 @@ export default class Home extends React.Component {
      <Navbar />
       <Header />
       <Video/>
+      <Carrusel/>
+     
       
       
      
-    <main className="main-home">
-    <Carrusel/>
-
-    </main>
+    
     
     <Footer />
     </div>
