@@ -11,6 +11,7 @@ const Videos = () => {
               muted
               type="video/mp4"
             />
+            
             <h1>MyTinerary </h1>
           </div>
     
