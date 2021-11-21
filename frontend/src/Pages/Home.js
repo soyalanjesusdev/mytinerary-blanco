@@ -15,12 +15,6 @@ export default class Home extends React.Component {
       <Header />
       <Video/>
       <Carrusel/>
-     
-      
-      
-     
-    
-    
     <Footer />
     </div>
     );

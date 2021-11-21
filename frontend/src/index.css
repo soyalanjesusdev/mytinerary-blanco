@@ -97,12 +97,8 @@ body::-webkit-scrollbar-thumb {
 
 .fotter {
   
-  background-image: url(./components/asset/patapama-g95fc4d421_1920.jpg);
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-  );
+  background-image: url(./components/asset/beach-g56f332cfe_1920.jpg);
+ 
   height: auto;
   padding-top: 20px;
   color: #ffffff;
