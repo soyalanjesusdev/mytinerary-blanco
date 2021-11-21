@@ -9,13 +9,13 @@ export default class MultipleRows extends Component {
       className: "center",
       centerMode: true,
       infinite: true,
-      centerPadding: "2px",
+      centerPadding: "3px",
       slidesToShow: 2,
-      speed: 1500,
+      speed: 500,
       rows: 2,
       slidesPerRow: 1,
       autoPlay: true,
-      autoplaySpeed: 20,
+      autoplaySpeed: 2000,
       dots: true,
     };
     
