@@ -21,7 +21,7 @@ export default class MultipleRows extends Component {
     
     return (
       <div className="carrusel">
-       
+       <h3> Popular myTinerary</h3>
         <Slider {...settings}>
           {Imagenes.map((img, index) => {
             return (

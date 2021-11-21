@@ -6,10 +6,11 @@ export default function footer() {
     
 <fotter className="fotter">
   <div className="content">
-    <h3>About Us</h3>
+    <div className="Welcome">
+    <h1 className="Welcome">About Us</h1>
     
     <p>Discover new fascinating destinations, full of emotion, adventure and luxury. You will never be the same after choosing one of our destinations with myTinerary. </p>
-
+</div>
     <ul class="socials">
       <li><a href="#"><i class="fa  fa-facebook"></i></a></li>
       <li><a href="#"><i class="fa  fa-twitter"></i></a></li>

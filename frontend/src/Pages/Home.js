@@ -11,7 +11,7 @@ export default class Home extends React.Component {
     return (
 
     <div className="contenedor">
-     <Navbar />
+    
       <Header />
       <Video/>
       <Carrusel/>

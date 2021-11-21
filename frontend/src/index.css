@@ -28,6 +28,8 @@ html * {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  text-shadow  : rgb(255, 255, 255);
 }
 
 .video {
@@ -36,6 +38,7 @@ html * {
   height: 100vh;
   position: absolute;
   z-index: -1;
+ 
 }
 
 .container-body {
@@ -93,10 +96,15 @@ body::-webkit-scrollbar-thumb {
 
 
 .fotter {
-  background-color: #000000;
+  
+  background-image: url(./components/asset/patapama-g95fc4d421_1920.jpg);
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
   height: auto;
-  font-family: 'open sans';
-  padding-top: 40px;
+  padding-top: 20px;
   color: #ffffff;
   
 }
@@ -177,3 +185,16 @@ max-width: 500px;
   opacity: .4;
 font-weight: 200;
 }
+
+.Welcome{
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  
+}
+
+

@@ -1,4 +1,4 @@
-
+import Navbar from './Navbar';
 
 const Header = () => {
   return (
@@ -6,7 +6,7 @@ const Header = () => {
       <div className="#">
         <div className="row">
           <div className="">
-         
+         <Navbar />
              
             </div>
           </div>
