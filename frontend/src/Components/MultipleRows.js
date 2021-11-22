@@ -10,19 +10,35 @@ export default class MultipleRows extends Component {
       centerMode: true,
       infinite: true,
       centerPadding: "3px",
-      slidesToShow: 2,
+      slidesToShow: 1,
       speed: 500,
       rows: 2,
-      slidesPerRow: 1,
-      autoPlay: true,
-      autoplaySpeed: 2000,
+      slidesPerRow: 2,
+      autoplay: true,
+      autoplaySpeed: 6000,
       dots: true,
+      pauseOnHover: false,
+      responsive: [
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            slidesPerRow: 1,
+            rows: 2,
+            dots: false,
+            arrows: false,
+          },
+        },
+      ],
+    
+      
     };
     
     return (
       <div className="carrusel">
-       <h3> Popular myTinerary</h3>
-        <Slider {...settings}>
+       <h3 className="Tituloc"> Popular MYtineraries</h3>
+        <Slider {...settings} >
           {Imagenes.map((img, index) => {
             return (
               <div key={index}>
@@ -40,3 +56,4 @@ export default class MultipleRows extends Component {
     );
   }
 }
+

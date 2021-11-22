@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Video from './Video';
 
 const Header = () => {
   return (
@@ -6,6 +7,7 @@ const Header = () => {
       <div className="#">
         <div className="row">
           <div className="">
+        
          <Navbar />
             </div>
           </div>

@@ -4,14 +4,14 @@ import { Container, Nav, NavDropdown } from "react-bootstrap";
 
 const Navegador = () => {
   return (
-    <Navbar collapseOnSelect expand="lg fixed-top active" bg="" variant="dark">
+    <Navbar collapseOnSelect expand="lg fixed-top active" bg="navbar-dark-hover-color" variant="dark">
       <Container>
         <Navbar.Brand href="#home">MyTinerary</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">Cities</Nav.Link>
+            <Nav.Link href="#Home">Home</Nav.Link>
+            <Nav.Link href="#Cities">Cities</Nav.Link>
 
             <NavDropdown title="User" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>

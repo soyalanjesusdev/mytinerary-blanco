@@ -1,3 +1,6 @@
+import React from 'react';
+
+
 const Imagenes =[
     {name: "Alberta", src: require("../components/asset/Cities12/Alberta.jpg").default},
     {name: "Buenos Aires", src: require("../components/asset/Cities12/Baires.jpg").default},
@@ -9,7 +12,8 @@ const Imagenes =[
     {name: "Paris", src: require("../components/asset/Cities12/paris.jpg").default},
     {name: "Seoul", src: require("../components/asset/Cities12/seul.jpg").default},
     {name: "Sydney", src: require("../components/asset/Cities12/sydney.jpg").default},
-    {name: "Prueba", src: require("../components/asset/Cities12/Baires.jpg").default},
-    {name: "Prueba", src: require("../components/asset/Cities12/Baires.jpg").default},
+    {name: "Bora-Bora", src: require("../components/asset/Cities12/bora.jpg").default},
+    {name: "Dubai", src: require("../components/asset/Cities12/dubai.jpg").default},
 ]
 export default Imagenes;
+
