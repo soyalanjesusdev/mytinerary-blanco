@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -28,8 +31,8 @@ export default function footer() {
       <div className="box">
       <h2></h2>
       <div className="redes">
-        <a href="./home.js">Home</a>
-        <a href="./cities.js">Cities</a>
+        <Link to="/">Home</Link>
+        <Link to="/Cities">Cities</Link>
         
         </div>
       </div>

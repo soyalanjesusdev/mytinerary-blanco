@@ -1,6 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import { Container, Nav, NavDropdown } from "react-bootstrap";
+import {Link} from 'react-router-dom';
+
+
 
 const Navegador = () => {
   return (
@@ -10,8 +13,8 @@ const Navegador = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#Home">Home</Nav.Link>
-            <Nav.Link href="#Cities">Cities</Nav.Link>
+            <Link to="/">Home</Link>
+            <Link to="/Cities">Cities</Link>
 
             <NavDropdown title="User" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>

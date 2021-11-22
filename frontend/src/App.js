@@ -1,13 +1,25 @@
 import React from 'react';
-import Home from './Pages/Home';
+import Home from "./pages/Home";
+import Cities from "./pages/Cities.js";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
-export default class App extends React.Component {
+
+
+class App extends React.Component {
   render() {
     return (
-      <div>
-        <Home/>
-      </div>
+      <BrowserRouter>
+        <Routes>
+        
+          <Route path="/" element={<Home />} />
+          <Route path="/cities" element={<Cities />} />
+         
+        </Routes>
+      </BrowserRouter>
     );
   }
+
 }
+
+export default App;

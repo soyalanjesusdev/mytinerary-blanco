@@ -177,3 +177,34 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 2rem;
 
 }
+
+
+
+#root > div > div > div.videos > button{
+ letter-spacing: 2px; 
+ font-size: 15px;
+ text-decoration: none;
+ overflow: hidden;
+ transition: 0.5s;
+ 
+}
+
+#root > div > div > div.videos > button:hover{
+  background-color: #6a850aea;
+  box-shadow: 0 0 10px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
+  color: #fff;
+}
+
+#root > div.contenedor > div.videos > button{
+  letter-spacing: 2px; 
+  font-size: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+#root > div.contenedor > div.videos > button:hover{
+  background-color: #6a850aea;
+  box-shadow: 0 0 10px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
+  color: #fff;
+}
