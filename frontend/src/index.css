@@ -7,10 +7,13 @@ html * {
 .navbar * {
   backdrop-filter: blur(10px);
   color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  background-color: #6a850aea
 }
 
-
+.main{
+  background-color: #6a850aea;
+  z-index: 1;
+}
 
 .contenedor {
   display: flex;
@@ -44,7 +47,7 @@ html * {
 /* Scrollbar */
 
 body::-webkit-scrollbar {
-  width: 15px;
+  width: 17px;
 }
 
 body::-webkit-scrollbar-track {

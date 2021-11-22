@@ -4,7 +4,7 @@ import { Container, Nav, NavDropdown } from "react-bootstrap";
 
 const Navegador = () => {
   return (
-    <Navbar collapseOnSelect expand="lg fixed-top active" bg="navbar-dark-hover-color" variant="dark">
+    <Navbar collapseOnSelect expand="lg fixed-top" bg="" variant="dark">
       <Container>
         <Navbar.Brand href="#home">MyTinerary</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

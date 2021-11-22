@@ -10,6 +10,7 @@ export default function footer() {
       <div className="box">
         <figure>
           <a href="#">
+            
            {/*  <img src="./asset/avion.png" alt="logo"></img> */}
           </a>
         </figure>
