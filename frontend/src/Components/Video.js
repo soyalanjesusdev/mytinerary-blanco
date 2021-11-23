@@ -14,12 +14,12 @@ const Videos = () => {
               muted
               type="video/mp4"
             />
-            <div className="video-overlay"></div>
+            <div className="buttonlink"></div>
             <h1>MyTinerary </h1>
             <h4>¡Find your perfect trip! <span>&#160;</span></h4>
-            <p>"designed by insiders who know and love their cities" </p>
+            <p className="p">"designed by insiders who know and love their cities" </p>
             
-            <Link to="/Cities"  type="button" class="btn btn-outline-light">Press to start the adventure</Link>
+            <Link  to="/Cities"  type="button" class="btn btn-outline-light">Press to start the adventure</Link>
           </div>
     
   );

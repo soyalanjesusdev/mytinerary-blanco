@@ -26,7 +26,7 @@ export default class MultipleRows extends Component {
             slidesToScroll: 1,
             slidesPerRow: 1,
             rows: 2,
-            dots: false,
+            dots: true,
             arrows: false,
           },
         },

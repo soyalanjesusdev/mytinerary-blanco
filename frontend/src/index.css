@@ -10,7 +10,7 @@ html * {
   background-color: #6a850aea
 }
 
-.main{
+.main {
   background-color: #6a850aea;
   z-index: 1;
 }
@@ -74,6 +74,14 @@ body::-webkit-scrollbar-thumb {
   width: 50%;
   margin: 8rem auto;
   height: 525px;
+
+}
+
+.p {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
 }
 
@@ -147,7 +155,8 @@ body::-webkit-scrollbar-thumb {
 
 
 .footer .footer-2 {
-  background-image: linear-gradient(#253949, #3d3f41);
+  background: rgb(115, 136, 240);
+  background: linear-gradient(185deg, rgb(103, 103, 104) 21%, #2a2b2aea 52%, rgb(107, 110, 107) 91%);
   padding: 15px 10px;
   text-align: center;
   color: white;
@@ -180,31 +189,57 @@ body::-webkit-scrollbar-thumb {
 
 
 
-#root > div > div > div.videos > button{
- letter-spacing: 2px; 
- font-size: 15px;
- text-decoration: none;
- overflow: hidden;
- transition: 0.5s;
- 
+#root>div>div.main>div.videos>a {
+  letter-spacing: 2px;
+  font-size: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.5s;
+
 }
 
-#root > div > div > div.videos > button:hover{
+#root>div>div.main>div.videos>a:hover {
   background-color: #6a850aea;
   box-shadow: 0 0 10px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
   color: #fff;
 }
 
-#root > div.contenedor > div.videos > button{
-  letter-spacing: 2px; 
+#root>div>div.videos>a {
+  letter-spacing: 2px;
   font-size: 15px;
   text-decoration: none;
   overflow: hidden;
   transition: 0.5s;
 }
 
-#root > div.contenedor > div.videos > button:hover{
+#root>div>div.videos>a:hover {
   background-color: #6a850aea;
   box-shadow: 0 0 10px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
   color: #fff;
+}
+
+
+.ms-auto .Link {
+
+  text-decoration: none;
+}
+
+.ms-auto .Link:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(0, 0, 0);
+  text-decoration: none !important;
+
+}
+
+.Logo {
+
+  text-decoration: none !important;
+  font-size: 1.5rem;
+}
+
+.Logo:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(0, 0, 0);
+  text-decoration: none !important;
+  font-size: 1.5rem;
 }
