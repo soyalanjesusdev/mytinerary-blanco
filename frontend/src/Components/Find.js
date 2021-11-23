@@ -13,6 +13,7 @@ export default class Find extends react.Component {
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  
                 />
                 <button class="btn btn-outline-success" type="submit">
                   Search
