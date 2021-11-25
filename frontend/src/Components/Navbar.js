@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import { Container, Nav, NavDropdown, } from "react-bootstrap";
