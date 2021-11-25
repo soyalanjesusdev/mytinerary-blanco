@@ -5,6 +5,8 @@ import Imagenes from "./ImagenesCarrusel";
 
 export default class MultipleRows extends Component {
   render() {
+    
+
     const settings = {
       className: "center",
       centerMode: true,

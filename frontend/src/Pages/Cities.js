@@ -1,23 +1,37 @@
-import React from "react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import Video from "../components/Video"
-import Find from "../components/Find"
+import TarjetaCiudad from "../components/TarjetaCiudad"  
 
 
-export default class Cities extends React.Component {
-    render() {
+/* import Find from "../components/Find"
+import Ciudad from "../components/Citie" */
+
+
+function Cities() {
+
+ 
+      
       return (
         <div className="contenedor">
           <Header />
           <Navbar />
           <Video />
-          <h1>Cities</h1>
-          <p>City Finder</p>
-          <Find />
+       
+
+         <TarjetaCiudad />
+
+         
+        
           <Footer />
         </div>
       );
     }
-  }
+  
+
+    export default Cities;
+
+
+
+   

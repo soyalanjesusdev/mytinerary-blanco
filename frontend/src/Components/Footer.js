@@ -19,7 +19,7 @@ export default function footer() {
         </figure>
       </div>
       <div className="box">
-        <h2></h2>
+        
         <div className="redes">
           <a href="#" className="fab fa-bitcoin"></a>
           <a href="#" className="fa fa-github"></a>
@@ -29,7 +29,7 @@ export default function footer() {
         </div>
       </div>
       <div className="box">
-      <h2></h2>
+      
       <div className="redes">
         <Link to="/">Home</Link>
         <Link to="/Cities">Cities</Link>

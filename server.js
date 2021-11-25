@@ -1,5 +1,3 @@
-
-const express = require('express');
 const ciudades =[
     {name: "Alberta", src: ("../components/asset/Cities12/Alberta.jpg")},
     {name: "Buenos Aires", src: ("../components/asset/Cities12/Baires.jpg")},
@@ -13,15 +11,16 @@ const ciudades =[
     {name: "Sydney", src: ("../components/asset/Cities12/sydney.jpg")},
     {name: "Bora-Bora", src: ("../components/asset/Cities12/bora.jpg")},
     {name: "Dubai", src: ("../components/asset/Cities12/dubai.jpg")},
+    {name: "Sydney", src: ("../components/asset/Cities12/sydney.jpg")},
+    {name: "Bora-Bora", src: ("../components/asset/Cities12/bora.jpg")},
+    {name: "Dubai", src: ("../components/asset/Cities12/dubai.jpg")},
 ]
-
-const app = express();
-
+const express = require('express'); 
+const cors = require('cors');    //importamos cors
+const app = express(); //creamos la aplicacion
+app.use(cors()); //usamos cors
 
 app.get('/api/ciudades', (req, res) => {
-   
-    res.json({Response: ciudades});
+    res.json({response: ciudades});
 })
-
-
-app.listen(4000, () =>{console.log('Hello Server is running on port 4000')});
+app.listen(4000, () =>{console.log('Hello Server is running on port 4000')}); //escuchamos en el puerto 4000
