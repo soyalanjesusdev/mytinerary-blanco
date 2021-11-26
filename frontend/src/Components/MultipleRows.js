@@ -1,10 +1,20 @@
-import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 import Slider from "react-slick";
 import Imagenes from "./ImagenesCarrusel";
+import React, { useEffect, useState } from "react";
 
-export default class MultipleRows extends Component {
-  render() {
+
+export default function MultipleRows () {
+    const [ciudades, setCiudades] = useState([]);
+    useEffect(() =>{
+    fetch('http://localhost:4000/api/ciudades')
+      .then(res => res.json())
+      .then((data) => {setCiudades(data.response.ciudades)
+      console.log("Hola")})
+      .catch(err => console.log(err.message))
+    }, [] 
+    )
+
     
 
     const settings = {
@@ -39,7 +49,7 @@ export default class MultipleRows extends Component {
     
     return (
       <div className="carrusel">
-       <h3 className="Tituloc"> Popular MYtineraries</h3>
+        <h3 className="Tituloc"> Popular MYtineraries</h3>
         <Slider {...settings} >
           {Imagenes.map((img, index) => {
             return (
@@ -56,6 +66,6 @@ export default class MultipleRows extends Component {
         </Slider>
       </div>
     );
-  }
-}
+        
 
+  }
