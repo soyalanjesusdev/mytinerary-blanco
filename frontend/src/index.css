@@ -243,3 +243,17 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
 }
 
+.Tarjetas{
+  width: 60%;
+  height: 20vh;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
+  margin-bottom: 2rem;
+}
+
+.cards-contenedor{
+  height: 100%;
+  width: 100%;
+  
+}

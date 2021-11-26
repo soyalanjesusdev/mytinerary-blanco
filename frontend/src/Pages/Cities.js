@@ -1,37 +1,28 @@
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import Video from "../components/Video"
-import TarjetaCiudad from "../components/TarjetaCiudad"  
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Video from "../components/Video";
+import TarjetaCiudad from "../components/TarjetaCiudad";
 
 
 /* import Find from "../components/Find"
 import Ciudad from "../components/Citie" */
 
+export default class Cities extends React.Component{
 
-function Cities() {
+  render(){
 
- 
-      
-      return (
-        <div className="contenedor">
-          <Header />
-          <Navbar />
-          <Video />
-       
-
-         <TarjetaCiudad />
-
-         
-        
-          <Footer />
-        </div>
-      );
-    }
-  
-
-    export default Cities;
+      return(
+          <div className="citiesC">
+         <Navbar/>
+          <Header/>
+          <Video/>
+          <TarjetaCiudad/>
+          <Footer/>
+           </div>
+      )
 
 
-
-   
+  }
+}
