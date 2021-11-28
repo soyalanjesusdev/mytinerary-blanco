@@ -24,6 +24,12 @@ const citiesController = {
     const ciudad = ciudades.find((ciudad) => ciudad.id.toString() === req.params.id);
     res.json({ response: { ciudad } });
   },
+  createCity: (req, res) => {
+    const { name, src } = req.body;
+    const newCity = { name, src, id: ciudades.length };
+    ciudades.push(newCity);
+    res.json({ responses: { ciudades } });
+  }
 };
 
 module.exports = citiesController;

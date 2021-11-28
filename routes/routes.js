@@ -5,6 +5,7 @@ const Router = require('express').Router();
 
 Router.route('/ciudades')
     .get(citiesController.getCities)
+    .post(citiesController.getCities)
 
 
     Router.route('/ciudad/:id')

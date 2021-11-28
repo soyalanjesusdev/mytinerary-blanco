@@ -8,9 +8,9 @@ export default function City() {
   const params = useParams();
   console.log(params);
   useEffect(() => {
-    fetch("http://localhost:4000/api/ciudades/" + params.id)
+    fetch("http://localhost:4000/api/ciudad/" + params.id)
       .then((res) => res.json())
-      .then((data) => setCiudad(data.response.ciudades))
+      .then((data) => setCiudad(data.response))
       .catch((err) => console.log(err.message));
   }, []);
   return (
@@ -28,7 +28,7 @@ export default function City() {
               longer.
             </Card.Text>
           }
-          {<Card.Text>Under Construccions</Card.Text>}
+          {<Card.Text>{<h2>Under Construccions</h2>}</Card.Text>}
         </Card.ImgOverlay>
       </Card>
 
