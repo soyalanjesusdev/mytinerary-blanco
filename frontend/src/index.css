@@ -243,17 +243,22 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
 }
 
-.Tarjetas{
-  width: 60%;
+.Tarjeta{
+ margin-top: 2rem;
+  width: 50%;
   height: 20vh;
-  background-color: #fff;
+  background-color: rgb(19, 18, 18);
   border-radius: 10px;
-  box-shadow: 0 0 10px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
-  margin-bottom: 2rem;
+  box-shadow: 0 0 20px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
+  margin-bottom: 25rem;
 }
 
 .cards-contenedor{
+
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   
 }

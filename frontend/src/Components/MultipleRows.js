@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
 import Slider from "react-slick";
-import Imagenes from "./ImagenesCarrusel";
+/* import Imagenes from "./ImagenesCarrusel"; */
 import React, { useEffect, useState } from "react";
 
 
@@ -51,7 +51,7 @@ export default function MultipleRows () {
       <div className="carrusel">
         <h3 className="Tituloc"> Popular MYtineraries</h3>
         <Slider {...settings} >
-          {Imagenes.map((img, index) => {
+          {ciudades.map((img, index) => {
             return (
               <div key={index}>
                 <Card className="m-2">
