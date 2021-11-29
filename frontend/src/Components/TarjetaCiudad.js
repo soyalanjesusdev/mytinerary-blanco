@@ -22,7 +22,7 @@ function TarjetaCiudad() {
   )
   return (
     <div className="Cofre">
-   <input className="searche"
+   <input 
          onInput={(e) => {setMin(e.target.value.toLowerCase().trimStart().trimEnd())
           setSearch(e.target.value)
         }}
