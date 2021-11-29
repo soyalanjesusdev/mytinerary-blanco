@@ -1,6 +1,6 @@
 import react from 'react';
 import Carrusel from './MultipleRows';
-import Video from "../components/Video"
+import Video from "../Components/Video"
 
 export default class Main extends react.Component {
   render() {

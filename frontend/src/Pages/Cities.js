@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Video from "../components/Video";
-import TarjetaCiudad from "../components/TarjetaCiudad";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import Header from "../Components/Header";
+import Video from "../Components/Video";
+import TarjetaCiudad from "../Components/TarjetaCiudad";
 
 
 

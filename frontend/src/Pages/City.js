@@ -1,9 +1,9 @@
-import Footer from "../components/Footer";
+import Footer from "../Components/Footer";
 import { useParams, Link  } from "react-router-dom";
 import { Card, Badge} from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
+import Navbar from "../Components/Navbar";
+import Header from "../Components/Header";
 
 export default function City() {
   const [ciudad, setCiudad] = useState([]);
