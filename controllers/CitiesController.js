@@ -31,7 +31,16 @@ const citiesController = {
     const ciudad = Ciudad({name, src, description}).save()
     .then((response)=> res.json({response}))
     console.log(ciudad)
-  }
+  },
+  modifyCity:(req,res)=>{
+ 
+    Ciudad.findOneAndUpdate({_id: req.params.id},{...req.body},{new:true}).then((response)=> res.json({response}))
+
+  },
+  deleteCity:(req,res)=>{
+
+    Ciudad.findOneAndDelete({_id: req.params.id}).then((response)=> res.json({response}))
+  },
 }
 
 module.exports = citiesController;

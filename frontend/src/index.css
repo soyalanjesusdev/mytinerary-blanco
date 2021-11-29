@@ -244,21 +244,64 @@ body::-webkit-scrollbar-thumb {
 }
 
 .Tarjeta{
- margin-top: 2rem;
-  width: 50%;
-  height: 20vh;
-  background-color: rgb(19, 18, 18);
+ margin-top: 5rem;
+  width: 80%;
+  height: 50vh;
+  image-orientation: center;
+    background-color: rgb(19, 18, 18);
   border-radius: 10px;
-  box-shadow: 0 0 20px #6a850aea, 0 0 40px #6a850aea, 0 0 80px #6a850aea;
-  margin-bottom: 25rem;
+  box-shadow: 0 0 5px #6a850aea, 0 0 10px #6a850aea, 0 0 20px #6a850aea;
+  margin-bottom: 5rem;
+  
 }
 
 .cards-contenedor{
-
-  height: 100%;
+  height: 50%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  object-fit: cover;
+}
+
+.Cofre{
+ 
+  justify-content: center;
+  width: 100%;
+  height: 100%;  
+}
+
+.nombret{
+  text-decoration: none;
+  color: rgb(6, 7, 7);
+  font-size: 25.5rem;
+}
+.car{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.s{
   
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5rem;
+  
+}
+
+.placeholder{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no{
+  color: rgb(248, 4, 4);
+  font-size: 2rem;
+  text-align: center;
+  background-color: rgba(11, 242, 232, 1);
+
+}
+
+.searche{
+  margin-top: 5rem;
 }

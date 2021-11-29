@@ -11,7 +11,7 @@ class App extends React.Component {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cities" element={<Cities />} />
-          <Route path="/ciudades/:id" element={<City />} />
+          <Route path="/ciudad/:id" element={<City />} />
         </Routes>
       </BrowserRouter>
     );

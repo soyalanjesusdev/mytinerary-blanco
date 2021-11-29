@@ -5,8 +5,9 @@ import { Card } from "react-bootstrap";
 
 function TarjetaCiudad() {
   const [ciudades, setCiudades] = useState([]);
-  const params = useParams();
   const [search, setSearch] = useState([])
+  const[min, setMin] = useState([]);
+  const params = useParams();
   console.log(params)
   useEffect(() => {
 
@@ -17,29 +18,39 @@ function TarjetaCiudad() {
       .catch((err) => console.log(err.message));
   }, []);
   const filter = ciudades.filter((city) =>
-    city.name.toLowerCase().startsWith(search)
+    city.name.toLowerCase().startsWith(min)
   )
   return (
-    <div>
-  <input
-        value={search} onChange={(e) => setSearch(e.target.value)} type="text" id="search" placeholder="Find City" name="s"
+    <div className="Cofre">
+   <input className="searche"
+         onInput={(e) => {setMin(e.target.value.toLowerCase().trimStart().trimEnd())
+          setSearch(e.target.value)
+        }}
+        value={search}
+        type="text" id="search" placeholder="Find City" className="s"
       />
     <div className="cards-contenedor">
-      {filter.map((ciudad) => {
+   
+
+      { filter.length> 0 ? (  filter.map((ciudad) => {
         return (
-          <Link to={`/ciudades/${ciudad.id}`}> 
-            <Card className="Tarjeta">
-              <Card.Img src={ciudad.src} alt="Card image" />
+          <Link to={`/ciudad/${ciudad._id}`}> 
+            <Card className="Tarjeta1">
+              <Card.Img className="Tarjeta" src={ciudad.src} alt="Card image" />
               <Card.ImgOverlay>
-                <Card.Title>{`${ciudad.name}`}</Card.Title>
+                <Card.Title className="nombret">{`${ciudad.name}`}</Card.Title>
               </Card.ImgOverlay>
             </Card>
                   </Link>
         );
-      })}
+        
+      })):(<h2 type="button" className="no">No results were obtained for your search</h2>)
+      
+      }
       </div>
     </div>
-  );
+  )
+  
 }
 
 export default TarjetaCiudad;

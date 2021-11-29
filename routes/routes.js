@@ -9,6 +9,14 @@ Router.route('/ciudades')
 
     Router.route('/ciudad/:id')
     .get(citiesController.getCity)
+    .delete(citiesController.deleteCity)
+    .put(citiesController.modifyCity)   
+    
+
+ 
+
+    
+
 
 
 module.exports = Router;
