@@ -17,7 +17,7 @@ function TarjetaCiudad() {
       .then((data) => setCiudades(data.response))
       .catch((err) => console.log(err.message));
   }, []);
-  const filter = ciudades.filter((city) =>
+  const filter = ciudades.filter((city) => 
     city.name.toLowerCase().startsWith(min) 
   ) 
   return (
