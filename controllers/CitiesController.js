@@ -1,4 +1,4 @@
-const ciudades = [
+/* const ciudades = [
   { name: "Alberta", src: "../Cities12/Alberta.jpg", id: 0 },
   { name: "Buenos Aires", src: "../Cities12/Baires.jpg", id: 1 },
   { name: "Dublin", src: "../Cities12/irlanda.jpg", id: 2 },
@@ -14,22 +14,24 @@ const ciudades = [
   { name: "Sydney", src: "../Cities12/sydney.jpg", id: 12 },
   { name: "Bora-Bora", src: "../Cities12/bora.jpg", id: 13 },
   { name: "Tokio", src: "../Cities12/tokio.jpg", id: 14 },
-];
-
+]; */
+const Ciudad = require("../models/Ciudad");
 const citiesController = {
-  getCities: (req, res) => {
-    res.json({ response: { ciudades } });
+    getCities:(req,res)=>{
+    const ciudades = Ciudad.find()
+    .then((response)=> res.json({response}))
   },
-  getCity: (req, res) => {
-    const ciudad = ciudades.find((ciudad) => ciudad.id.toString() === req.params.id);
-    res.json({ response: { ciudad } });
+  getCity:(req,res)=>{
+    const ciudad = Ciudad.findOne({_id: req.params.id})
+        .then((response) =>{res.json({response})
+})  
   },
-  createCity: (req, res) => {
-    const { name, src } = req.body;
-    const newCity = { name, src, id: ciudades.length };
-    ciudades.push(newCity);
-    res.json({ responses: { ciudades } });
+  createCity:(req,res)=>{
+    const {name, src, description}= req.body
+    const ciudad = Ciudad({name, src, description}).save()
+    .then((response)=> res.json({response}))
+    console.log(ciudad)
   }
-};
+}
 
 module.exports = citiesController;

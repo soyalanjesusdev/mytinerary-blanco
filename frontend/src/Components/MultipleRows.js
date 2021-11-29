@@ -9,7 +9,7 @@ export default function MultipleRows () {
     useEffect(() =>{
     fetch('http://localhost:4000/api/ciudades')
       .then(res => res.json())
-      .then((data) => {setCiudades(data.response.ciudades)
+      .then((data) => {setCiudades(data.response)
       console.log("Hola")})
       .catch(err => console.log(err.message))
     }, [] 

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const ciudadSchema = new mongoose.Schema({
     name: {type: String, require: true},
-    ciudad: {type: String, require: true},
-    image: {type: String, require: true},
+    src: {type: String, require: true},
+    about: {type: String, require: true},
 
    
     
