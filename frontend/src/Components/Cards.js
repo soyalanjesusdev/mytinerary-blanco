@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Cards() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <div></div>;
 }
 
-export default Cards
+export default Cards;

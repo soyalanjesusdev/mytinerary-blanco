@@ -5,8 +5,6 @@ import Header from "../components/Header";
 import Video from "../components/Video";
 import TarjetaCiudad from "../components/TarjetaCiudad";
 
-
-
 export default class Cities extends React.Component {
   render() {
     return (
@@ -14,7 +12,7 @@ export default class Cities extends React.Component {
         <Navbar />
         <Header />
         <Video />
-        
+
         <TarjetaCiudad />
         <Footer />
       </div>

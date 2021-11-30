@@ -4,7 +4,7 @@ import Video from "../components/Video.js";
 
 import Footer from "../components/Footer.js";
 import Navbar from "../components/Navbar.js";
-import Main from "../components/Main"
+import Main from "../components/Main";
 
 export default class Home extends React.Component {
   render() {
