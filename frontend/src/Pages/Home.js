@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../Components/Header.js";
-import Video from "../Components/Video.js";
+import Header from "../components/Header.js";
+import Video from "../components/Video.js";
 
-import Footer from "../Components/Footer.js";
-import Navbar from "../Components/Navbar.js";
-import Main from "../Components/Main"
+import Footer from "../components/Footer.js";
+import Navbar from "../components/Navbar.js";
+import Main from "../components/Main"
 
 export default class Home extends React.Component {
   render() {

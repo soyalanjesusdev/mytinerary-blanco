@@ -1,8 +1,8 @@
 import React from "react";
-import Home from "./Pages/Home";
-import Cities from "./Pages/Cities.js";
+import Home from "./pages/Home";
+import Cities from "./pages/Cities.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import City from "./Pages/City.js";
+import City from "./pages/City.js";
 
 class App extends React.Component {
   render() {

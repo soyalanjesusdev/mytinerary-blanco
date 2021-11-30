@@ -1,4 +1,4 @@
-import Video from "../Components/asset/Lake64587.mp4";
+import Video from "./asset/Lake64587.mp4";
 import {Link} from "react-router-dom";
 
 const Videos = () => {
