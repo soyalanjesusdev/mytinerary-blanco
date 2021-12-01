@@ -1,12 +1,12 @@
 const Itinerary = require("../models/Itinerary"); //asi importa el controlador
 
 const itineraryController = {
-    returnItinerary: (req, res) => {
+    getItinerary: (req, res) => {
         Itinerary.find().then((response) => res.json({
             response
         }));
     },
-    returnItinerary: (req, res) => {
+    getItinerary: (req, res) => {
         Itinerary.findOne({
             _id: req.params.id
         }).then((response) => {
@@ -26,7 +26,7 @@ const itineraryController = {
             hashtags,
             comments,
         } = req.body;
-        const itinerary = new City({
+        const itinerary = new Itinerary({
             itineraryName,
             userName,
             userImg,
