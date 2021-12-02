@@ -38,7 +38,7 @@ function TarjetaCiudad() {
               <Link to={`/ciudad/${ciudad._id}`}>
                 <Card className="Tarjeta1">
                   <Card.Img
-                    className="Tarjeta"
+                    className="car2"
                     src={ciudad.src}
                     alt="Card image"
                   />

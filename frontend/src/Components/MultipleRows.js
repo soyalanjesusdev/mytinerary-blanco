@@ -48,6 +48,7 @@ export default function MultipleRows() {
       <h3 className="Tituloc"> Popular MYtineraries</h3>
       <Slider {...settings}>
         {ciudades.map((img, index) => {
+          if(index < 12){
           return (
             <div key={index}>
               <Card className="m-2">
@@ -58,7 +59,7 @@ export default function MultipleRows() {
               </Card>
             </div>
           );
-        })}
+}})}
       </Slider>
     </div>
   );

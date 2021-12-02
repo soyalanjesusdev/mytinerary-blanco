@@ -35,12 +35,14 @@ export default function City() {
             </Card.Text>
           } */}
         </Card.ImgOverlay>
-        <Link to="/" type="button" className="btn dark btn-outline-dark">
-          Home
-        </Link>
-        <Link to="/Cities" type="button" className="btn dark btn-outline-dark">
-          Back to Cities
-        </Link>
+        <div className="buttonpa">
+        <button><span>Home </span><Link to="/" type="button" className="liquid">
+          
+        </Link></button>
+        <button><span>Back to Cities</span><Link to="/Cities" type="button" className="liquid">
+          
+        </Link></button>
+        </div>
         {
           <Card.Text>
             {

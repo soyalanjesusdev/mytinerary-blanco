@@ -252,7 +252,25 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(19, 18, 18);
   border-radius: 10px;
   box-shadow: 0 0 5px #6a850aea, 0 0 10px #6a850aea, 0 0 20px #6a850aea;
-  margin-bottom: 5rem;
+  margin-bottom: 10rem;
+  background-position: cover;
+  object-fit: cover;
+
+
+}
+
+.Tarjeta1 {
+  margin-top: 5rem;
+  width: 100%;
+  height: 50vh;
+  image-orientation: center;
+  background-color: rgb(19, 18, 18);
+  border-radius: 10px;
+  box-shadow: 0 0 5px #6a850aea, 0 0 10px #6a850aea, 0 0 20px #6a850aea;
+  margin-bottom: 0.5rem;
+  background-position: cover;
+  object-fit: cover;
+
 
 }
 
@@ -267,38 +285,41 @@ body::-webkit-scrollbar-thumb {
 
 #search {
   width: 100%;
-  height: 50px;
+  height: 45px;
   background-color: rgb(19, 18, 18);
   border-radius: 10px;
   box-shadow: 0 0 5px #6a850aea, 0 0 10px #6a850aea, 0 0 20px #6a850aea;
-  margin-bottom: 5rem;
+  margin-bottom: 0.2rem;
   text-align: center;
 }
 
 
 
 .cards-contenedor {
-  height: 50%;
-  width: 100%;
-  object-fit: cover;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 0 auto;
+  border-radius: 30% 70% 70% 30% / 30% 21% 79% 70%;
+
 }
 
-.Cofre {
-  align-content: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
+
 
 .nombret {
   text-decoration: none;
-  font-size: 2.5rem !important;
-  width: 100%;
+  font-size: 1.2rem !important;
+  width: 80%;
   color: rgb(6, 7, 7);
+  font-style: oblique;
+  font-weight: bold;
   text-align: center;
-  border-radius: 5%;
-  background: rgb(154, 251, 162);
-  background: radial-gradient(circle, rgba(154, 251, 162, 1) 0%, rgba(171, 210, 255, 1) 100%);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .car {
@@ -306,6 +327,16 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   object-fit: cover;
   font-size: 40px;
+  background-position: cover;
+
+}
+
+.car2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  font-size: 40px;
+  background-position: cover;
 
 }
 
@@ -327,13 +358,14 @@ body::-webkit-scrollbar-thumb {
 .placeholder {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
 }
 
 .under {
   background: rgb(154, 251, 162);
   background: radial-gradient(circle, rgba(154, 251, 162, 1) 0%, rgba(171, 210, 255, 1) 100%);
   text-align: center;
+  ;
 
 }
 
@@ -343,4 +375,91 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   background-color: rgba(11, 242, 232, 1);
 
+}
+
+
+.buttonpa {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px 50px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 50px;
+  border: none;
+}
+
+button span {
+  position: relative;
+  color: rgb(16, 17, 17);
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'open sans', sans-serif;
+  z-index: 1;
+
+}
+
+button .liquid {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: #1deff7;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: .5s;
+}
+
+button .liquid::after,
+button .liquid::before {
+  content: '';
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #fff;
+}
+
+button .liquid::before {
+  border-radius: 45%;
+  background: rgb(34, 250, 185);
+  animation: animate 5s linear infinite;
+}
+
+button .liquid::after {
+  border-radius: 40%;
+  background: rgba(20, 20, 20, .5);
+  animation: animate 10s linear infinite;
+}
+
+button:hover .liquid {
+  top: -120px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
 }
