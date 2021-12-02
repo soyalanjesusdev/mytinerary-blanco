@@ -104,6 +104,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   background: rgb(68, 242, 249);
   background: linear-gradient(275deg, rgba(68, 242, 249, 1) 49%, rgba(127, 240, 98, 1) 83%);
+  position: absolute;
 }
 
 .footer .footer-1 {
