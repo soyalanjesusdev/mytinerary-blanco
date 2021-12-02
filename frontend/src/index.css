@@ -260,14 +260,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .Tarjeta1 {
-  margin-top: 5rem;
+  margin-top: 1rem;
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   image-orientation: center;
   background-color: rgb(19, 18, 18);
   border-radius: 10px;
   box-shadow: 0 0 5px #6a850aea, 0 0 10px #6a850aea, 0 0 20px #6a850aea;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
+  margin-top: 2.2rem;
   background-position: cover;
   object-fit: cover;
 
@@ -284,13 +285,18 @@ body::-webkit-scrollbar-thumb {
 }
 
 #search {
-  width: 100%;
-  height: 45px;
-  background-color: rgb(19, 18, 18);
+  width: 50%;
+  height: 30px;
   border-radius: 10px;
   box-shadow: 0 0 5px #6a850aea, 0 0 10px #6a850aea, 0 0 20px #6a850aea;
   margin-bottom: 0.2rem;
   text-align: center;
+}
+
+.sc{
+  margin-top: 3rem;
+  font-size: 1.5rem;
+ 
 }
 
 
@@ -298,12 +304,19 @@ body::-webkit-scrollbar-thumb {
 .cards-contenedor {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-gap: 50px;
   margin: 0 auto;
-  border-radius: 30% 70% 70% 30% / 30% 21% 79% 70%;
-
+  width: 100%;
+  height: 100%;
 }
 
+.Cofre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
 
 
 .nombret {
@@ -341,10 +354,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .s {
-  font-size: 2.5rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  height: 8vh;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 7vh;
   width: 100%;
   padding: auto;
   border-color: aqua;
@@ -463,3 +478,31 @@ button:hover .liquid {
     transform: translate(-50%, -75%) rotate(360deg);
   }
 }
+
+
+h2 > button {
+  
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.9rem;
+  text-decoration: none;
+  padding: 5px 10px;
+  text-align: center;
+  border: none;
+  clip-path: polygon(7% 0, 93% 0, 100% 50%, 93% 100%, 7% 100%, 0 50%);
+  background-color: #14f8f8;
+  background-image: radial-gradient(200% 70% at center 20%, rgb(132, 241, 128) -30%, rgb(52, 159, 247) 49%, rgb(53, 160, 231) 50%, rgb(92, 241, 241) 150%);
+  background-repeat: no-repeat;
+  transition: background-position-y ease-in-out 250ms;
+ }
+ 
+h2> button:hover {
+  background-position-y: -50px;
+ }
+ 
+ h2>button:active {
+  transform: scale(0.99);
+ }

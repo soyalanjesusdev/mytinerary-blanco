@@ -20,6 +20,7 @@ function TarjetaCiudad() {
   );
   return (
     <div className="Cofre">
+      <h2 className="sc"><button> Search Cities  </button></h2>
       <input
         onInput={(e) => {
           setMin(e.target.value.toLowerCase().trimStart().trimEnd());
