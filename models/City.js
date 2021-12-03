@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"); //importamos mongoose
-const ciudadSchema = new mongoose.Schema({ //creamos el esquema de ciudades
+const citySchema = new mongoose.Schema({ //creamos el esquema de ciudades
   name: {
     type: String,
     require: true
@@ -18,5 +18,5 @@ const ciudadSchema = new mongoose.Schema({ //creamos el esquema de ciudades
   },
 });
 
-const Ciudad = mongoose.model("Ciudad", ciudadSchema); //creamos el modelo de ciudades con el esquema creado
-module.exports = Ciudad; //exportamos el modelo de ciudades
+const City = mongoose.model("City", citySchema); //creamos el modelo de ciudades con el esquema creado
+module.exports = City; //exportamos el modelo de ciudades

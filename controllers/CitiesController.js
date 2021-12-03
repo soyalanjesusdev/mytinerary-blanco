@@ -1,16 +1,16 @@
-const Ciudad = require("../models/Ciudad"); //importamos el modelo de ciudades
+const City = require("../models/City"); //importamos el modelo de ciudades
 const citiesController = {
   //creamos un objeto con las funciones que vamos a usar
   getCities: (req, res) => {
     //funcion para obtener todas las ciudades
-    const ciudades = Ciudad.find() //buscamos todas las ciudades
+    const cities = City.find() //buscamos todas las ciudades
       .then((response) => res.json({
         response
       })); //devolvemos la respuesta
   },
   getCity: (req, res) => {
     //funcion para obtener una ciudad
-    const ciudad = Ciudad.findOne({
+    const city = City.findOne({
       _id: req.params.id
     }).then((response) => {
       res.json({
@@ -25,7 +25,7 @@ const citiesController = {
       src,
       description
     } = req.body; //obtenemos los datos del body de la peticion
-    const ciudad = Ciudad({
+    const city = City({
         name,
         src,
         description
@@ -34,12 +34,12 @@ const citiesController = {
       .then((response) => res.json({
         response
       })); //devolvemos la respuesta de la peticion del nuevo objeto
-    console.log(ciudad);
+    console.log(city);
   },
   modifyCity: (req, res) => {
     //funcion para modificar una ciudad
 
-    Ciudad.findOneAndUpdate({
+    City.findOneAndUpdate({
       _id: req.params.id
     }, {
       ...req.body
@@ -52,7 +52,7 @@ const citiesController = {
   deleteCity: (req, res) => {
     //funcion para eliminar una ciudad
 
-    Ciudad.findOneAndDelete({
+    City.findOneAndDelete({
       _id: req.params.id
     }).then((response) =>
       res.json({

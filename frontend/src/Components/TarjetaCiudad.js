@@ -4,18 +4,18 @@ import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 
 function TarjetaCiudad() {
-  const [ciudades, setCiudades] = useState([]);
+  const [cities, setCities] = useState([]);
   const [search, setSearch] = useState([]);
   const [min, setMin] = useState([]);
   const params = useParams();
   console.log(params);
   useEffect(() => {
-    fetch("http://localhost:4000/api/ciudades")
+    fetch("http://localhost:4000/api/cities")
       .then((res) => res.json())
-      .then((data) => setCiudades(data.response))
+      .then((data) => setCities(data.response))
       .catch((err) => console.log(err.message));
   }, []);
-  const filter = ciudades.filter((city) =>
+  const filter = cities.filter((city) =>
     city.name.toLowerCase().startsWith(min)
   );
   return (
@@ -34,17 +34,17 @@ function TarjetaCiudad() {
       />
       <div className="cards-contenedor">
         {filter.length > 0 ? (
-          filter.map((ciudad) => {
+          filter.map((city) => {
             return (
-              <Link to={`/ciudad/${ciudad._id}`}>
+              <Link to={`/ciudad/${city._id}`}>
                 <Card className="Tarjeta1">
                   <Card.Img
                     className="car2"
-                    src={ciudad.src}
+                    src={city.src}
                     alt="Card image"
                   />
                   <Card.ImgOverlay>
-                    <Card.Title className="nombret">{`${ciudad.name}`}</Card.Title>
+                    <Card.Title className="nombret">{`${city.name}`}</Card.Title>
                   </Card.ImgOverlay>
                 </Card>
               </Link>

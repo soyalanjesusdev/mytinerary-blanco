@@ -1,18 +1,14 @@
 import { Card } from "react-bootstrap";
 import Slider from "react-slick";
-/* import Imagenes from "./ImagenesCarrusel"; */
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
+import {connect} from 'react-redux';
+import citiesActions from "../redux/actions/citiesActions";
 
-export default function MultipleRows() {
-  const [ciudades, setCiudades] = useState([]);
+
+function MultipleRows(props) {
+  console.log(props)
   useEffect(() => {
-    fetch("http://localhost:4000/api/ciudades")
-      .then((res) => res.json())
-      .then((data) => {
-        setCiudades(data.response);
-        console.log("Hola");
-      })
-      .catch((err) => console.log(err.message));
+    props.getCities();
   }, []);
 
   const settings = {
@@ -47,7 +43,8 @@ export default function MultipleRows() {
     <div className="carrusel">
       <h3 className="Tituloc"> Popular MYtineraries</h3>
       <Slider {...settings}>
-        {ciudades.map((img, index) => {
+        {props.cities.length > 0 && props.cities.map((img, index) => {
+          
           if(index < 12){
           return (
             <div key={index}>
@@ -64,3 +61,18 @@ export default function MultipleRows() {
     </div>
   );
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+  };
+}
+
+const mapDispatchToProps = {
+
+    getCities: citiesActions.getCities
+  
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MultipleRows)

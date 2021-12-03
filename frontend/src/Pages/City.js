@@ -6,14 +6,14 @@ import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
 export default function City() {
-  const [ciudad, setCiudad] = useState([]);
+  const [city, setCity] = useState([]);
   const params = useParams();
 
   console.log(params);
   useEffect(() => {
-    fetch("http://localhost:4000/api/ciudad/" + params.id)
+    fetch("http://localhost:4000/api/city/" + params.id)
       .then((res) => res.json())
-      .then((data) => setCiudad(data.response))
+      .then((data) => setCity(data.response))
       .catch((err) => console.log(err.message));
   }, []);
   return (
@@ -22,19 +22,29 @@ export default function City() {
       <Header />
 
       <Card className="Tarjeta">
-        <Card.Img className="car" src={ciudad.src} alt="Card image" />
+        <Card.Img className="car" src={city.src} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title>
-            {ciudad.name}, {ciudad.country}
+            {city.name}, {city.country}
           </Card.Title>
           {/* {
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+            This is a wider card with supporting text below as a natural
+            lead-in to additional content. This content is a little bit
+            longer.
             </Card.Text>
           } */}
         </Card.ImgOverlay>
+          {
+            <Card.Text>
+              {
+                <h2 className="under">
+                  Site under construction, we are working for you
+                  <Badge bg="secondary"></Badge>
+                </h2>
+              }
+            </Card.Text>
+          }
         <div className="buttonpa">
         <button><span>Home </span><Link to="/" type="button" className="liquid">
           
@@ -43,16 +53,6 @@ export default function City() {
           
         </Link></button>
         </div>
-        {
-          <Card.Text>
-            {
-              <h2 className="under">
-                Site under construction, we are working for you
-                <Badge bg="secondary"></Badge>
-              </h2>
-            }
-          </Card.Text>
-        }
       </Card>
 
       <Footer />
