@@ -6,14 +6,14 @@ import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
 export default function City() {
-  const [ciudad, setCiudad] = useState([]);
+  const [city, setCity] = useState([]);
   const params = useParams();
 
   console.log(params);
   useEffect(() => {
-    fetch("http://localhost:4000/api/ciudad/" + params.id)
+    fetch("http://localhost:4000/api/city/" + params.id)
       .then((res) => res.json())
-      .then((data) => setCiudad(data.response))
+      .then((data) => setCity(data.response))
       .catch((err) => console.log(err.message));
   }, []);
   return (
@@ -22,10 +22,10 @@ export default function City() {
       <Header />
 
       <Card className="Tarjeta">
-        <Card.Img className="car" src={ciudad.src} alt="Card image" />
+        <Card.Img className="car" src={citySchema.src} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title>
-            {ciudad.name}, {ciudad.country}
+            {citySchema.name}, {citySchema.country}
           </Card.Title>
           {/* {
             <Card.Text>

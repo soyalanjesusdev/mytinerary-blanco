@@ -4,12 +4,12 @@ import Slider from "react-slick";
 import React, { useEffect, useState } from "react";
 
 export default function MultipleRows() {
-  const [ciudades, setCiudades] = useState([]);
+  const [cities, setCities] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/api/ciudades")
+    fetch("http://localhost:4000/api/cities")
       .then((res) => res.json())
       .then((data) => {
-        setCiudades(data.response);
+        setCities(data.response);
         console.log("Hola");
       })
       .catch((err) => console.log(err.message));
@@ -47,7 +47,7 @@ export default function MultipleRows() {
     <div className="carrusel">
       <h3 className="Tituloc"> Popular MYtineraries</h3>
       <Slider {...settings}>
-        {ciudades.map((img, index) => {
+        {cities.map((img, index) => {
           if(index < 12){
           return (
             <div key={index}>
