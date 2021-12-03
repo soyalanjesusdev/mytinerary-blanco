@@ -3,7 +3,8 @@ const citiesController = {
   //creamos un objeto con las funciones que vamos a usar
   getCities: (req, res) => {
     //funcion para obtener todas las ciudades
-    const cities = Cities.find() //buscamos todas las ciudades
+    const cities = City.find()
+    
       .then((response) => res.json({
         response
       })); //devolvemos la respuesta

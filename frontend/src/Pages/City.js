@@ -22,10 +22,10 @@ export default function City() {
       <Header />
 
       <Card className="Tarjeta">
-        <Card.Img className="car" src={citySchema.src} alt="Card image" />
+        <Card.Img className="car" src={city.src} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title>
-            {citySchema.name}, {citySchema.country}
+            {city.name}, {city.country}
           </Card.Title>
           {/* {
             <Card.Text>
