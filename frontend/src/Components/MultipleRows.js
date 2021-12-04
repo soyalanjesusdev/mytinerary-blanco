@@ -9,8 +9,9 @@ function MultipleRows(props) {
   console.log(props)
   useEffect(() => {
     props.getCities();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   const settings = {
     className: "center",
     centerMode: true,
@@ -43,6 +44,7 @@ function MultipleRows(props) {
     <div className="carrusel">
       <h3 className="Tituloc"> Popular MYtineraries</h3>
       <Slider {...settings}>
+        
         {props.cities.length > 0 && props.cities.map((img, index) => {
           
           if(index < 12){

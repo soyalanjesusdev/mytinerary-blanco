@@ -1,14 +1,24 @@
-const citiesController = require("../controllers/CitiesController"); //require de CitiesController para usar las funciones de este controlador
+const citiesController = require("../controllers/CitiesController"); 
+const itineraryController = require("../controllers/itineraryControllers"); 
+const Router = require("express").Router();
 
-const Router = require("express").Router(); //importamos el router de express para poder usar las rutas de express
+Router.route("/cities") 
+  .get(citiesController.getCities) 
+  .post(citiesController.createCity);
 
-Router.route("/cities") //ruta para obtener todas las ciudades
-  .get(citiesController.getCities) //llamamos a la funcion getCities de citiesController  para obtener todas las ciudades
-  .post(citiesController.createCity); //llamamos a la funcion createCity de citiesController para crear una ciudad
+Router.route("/city/:id") 
+  .get(citiesController.getCity) 
+  .delete(citiesController.deleteCity) 
+  .put(citiesController.modifyCity); 
 
-Router.route("/city/:id") //ruta para obtener una ciudad
-  .get(citiesController.getCity) //llamamos a la funcion getCity de citiesController para obtener una ciudad
-  .delete(citiesController.deleteCity) //llamamos a la funcion deleteCity de citiesController para eliminar una ciudad
-  .put(citiesController.modifyCity); //llamamos a la funcion modifyCity de citiesController para modificar una ciudad
 
+Router.route("/itinerary")
+.get(itineraryController.getItinerary)
+.post(itineraryController.createItinerary)
+
+Router.route("/itinerary/:id")
+.get(itineraryController.createItinerary)
+.delete(itineraryController.deleteItinerary)
+.put(itineraryController.modifyItinerary);
+//ruta para obtener todos los itinerarios
 module.exports = Router; //exportamos el router para poder usarlo en el server.js

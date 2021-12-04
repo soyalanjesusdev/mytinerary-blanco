@@ -1,54 +1,50 @@
-const mongoose = require("mongoose"); // MongoDB abstraction layer  (https://www.npmjs.com/package/mongoose)
+const mongoose = require("mongoose");
 const ItinerarySchema = new mongoose.Schema({
   name: {
     type: String,
-    require: true
+    required: true,
   },
   src: {
     type: String,
-    require: true
+    required: true,
   },
   country: {
     type: String,
-    require: true
+    required: true,
   },
   about: {
     type: String,
-    require: true
+    required: true,
   },
   itineraryName: {
     type: String,
-    require: true
+    required: true,
   },
   userName: {
     type: String,
-    require: true
+    required: true,
   },
   userImg: {
     type: String,
-    require: true
+    required: true,
   },
   price: {
     type: Number,
-    require: true
+    required: true,
   },
   likes: {
     type: Number,
-    require: true
+    required: true,
   },
   duration: {
     type: String,
-    require: true
+    required: true,
   },
   hashtags: {
     type: String,
-    require: true
-  },
-  comments: {
-    type: String,
-    require: true
+    required: true,
   },
 });
 
-const Itinerary = mongoose.model("Itinerary", itinerarySchema);
+const Itinerary = mongoose.model("Itinerary", ItinerarySchema);
 module.exports = Itinerary;

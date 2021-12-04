@@ -1,42 +1,29 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import citiesActions from "../redux/actions/citiesActions"
+import {connect} from 'react-redux'
 
-function TarjetaCiudad() {
-  const [cities, setCities] = useState([]);
-  const [search, setSearch] = useState([]);
-  const [min, setMin] = useState([]);
-  const params = useParams();
-  console.log(params);
-  useEffect(() => {
-    fetch("http://localhost:4000/api/cities")
-      .then((res) => res.json())
-      .then((data) => setCities(data.response))
-      .catch((err) => console.log(err.message));
-  }, []);
-  const filter = cities.filter((city) =>
-    city.name.toLowerCase().startsWith(min)
-  );
+function TarjetaCiudad(props) {
+  !props.cities[0] && props.getCities() 
+  console.log(props)
   return (
     <div className="Cofre">
       <h2 className="sc"><button> Search Cities  </button></h2>
       <input
-        onInput={(e) => {
-          setMin(e.target.value.toLowerCase().trimStart().trimEnd());
-          setSearch(e.target.value);
+        onChange={(e) => {
+          props.filterCities(props.cities, e.target.value.toLocaleLowerCase().trim());
         }}
-        value={search}
         type="text"
         id="search"
         placeholder="Find City"
         className="s"
       />
       <div className="cards-contenedor">
-        {filter.length > 0 ? (
-          filter.map((city) => {
+        {props.auxiliar.length > 0 ? (
+          props.auxiliar.map((city) => {
             return (
-              <Link to={`/ciudad/${city._id}`}>
+              <Link to={`/city/${city._id}`}>
                 <Card className="Tarjeta1">
                   <Card.Img
                     className="car2"
@@ -60,4 +47,15 @@ function TarjetaCiudad() {
   );
 }
 
-export default TarjetaCiudad;
+const mapDispatchToProps = {
+  filterCities: citiesActions.filterCities,
+  getCities: citiesActions.getCities,
+}  
+
+const mapStateToProps =  (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+    auxiliar: state.citiesReducer.auxiliar,
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TarjetaCiudad)

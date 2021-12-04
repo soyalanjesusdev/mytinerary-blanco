@@ -16,7 +16,12 @@ const citySchema = new mongoose.Schema({ //creamos el esquema de ciudades
     type: String,
     require: true
   },
+
+    itinerary: [
+      {type: mongoose.Schema.Types.ObjectId, ref: "Itinerary", require: true},
+]
 });
+
 
 const City = mongoose.model("City", citySchema); //creamos el modelo de ciudades con el esquema creado
 module.exports = City; //exportamos el modelo de ciudades

@@ -1,16 +1,17 @@
 const City = require("../models/City"); //importamos el modelo de ciudades
 const citiesController = {
-  //creamos un objeto con las funciones que vamos a usar
+
   getCities: (req, res) => {
-    //funcion para obtener todas las ciudades
-    const cities = City.find() //buscamos todas las ciudades
+    
+    City.find() 
+    .populate("itinerary")//buscamos todas las ciudades
       .then((response) => res.json({
         response
       })); //devolvemos la respuesta
   },
   getCity: (req, res) => {
     //funcion para obtener una ciudad
-    const city = City.findOne({
+    City.findOne({
       _id: req.params.id
     }).then((response) => {
       res.json({
@@ -23,17 +24,17 @@ const citiesController = {
     const {
       name,
       src,
-      description
+      about,
     } = req.body; //obtenemos los datos del body de la peticion
     const city = City({
         name,
         src,
-        description
+        about,
       })
-      .save() //creamos una ciudad con los datos obtenidos del body
+      .save() 
       .then((response) => res.json({
         response
-      })); //devolvemos la respuesta de la peticion del nuevo objeto
+      }));
     console.log(city);
   },
   modifyCity: (req, res) => {
@@ -47,10 +48,10 @@ const citiesController = {
       new: true
     }).then((response) => res.json({
       response
-    })); //buscamos la ciudad por id y actualizamos los datos con los nuevos que nos lleguen en el body de la peticion
+    }));
   },
   deleteCity: (req, res) => {
-    //funcion para eliminar una ciudad
+    
 
     City.findOneAndDelete({
       _id: req.params.id
@@ -58,7 +59,7 @@ const citiesController = {
       res.json({
         response
       })
-    ); //eliminamos la ciudad con el id que nos llega por parametro
+    ); 
   },
 };
 

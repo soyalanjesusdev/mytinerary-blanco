@@ -1,31 +1,29 @@
 import Footer from "../components/Footer";
 import { useParams, Link } from "react-router-dom";
 import { Card, Badge } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
+import { connect } from "react-redux";
+import citiesActions from "../redux/actions/citiesActions";
 
-export default function City() {
-  const [city, setCity] = useState([]);
+function City(props) {
+  !props.cities[0] && props.getCities()
+  console.log(props)
   const params = useParams();
-
-  console.log(params);
-  useEffect(() => {
-    fetch("http://localhost:4000/api/city/" + params.id)
-      .then((res) => res.json())
-      .then((data) => setCity(data.response))
-      .catch((err) => console.log(err.message));
-  }, []);
+  console.log(params.id);
+  props.cities[0] && props.findCity(props.cities, params.id)
+    
+  
   return (
     <div className="city">
       <Navbar />
       <Header />
 
       <Card className="Tarjeta">
-        <Card.Img className="car" src={city.src} alt="Card image" />
+        <Card.Img className="car" src={props.city.src} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title>
-            {city.name}, {city.country}
+            {props.city.name},{props.city.country}
           </Card.Title>
           {/* {
             <Card.Text>
@@ -59,3 +57,17 @@ export default function City() {
     </div>
   );
 }
+
+
+const mapDispatchToProps = {
+  findCity: citiesActions.findCity,
+  getCities: citiesActions.getCities,
+}  
+
+const mapStateToProps =  (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+    city: state.citiesReducer.city,
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(City);

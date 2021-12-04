@@ -51,7 +51,7 @@ const itineraryController = {
             success: true
         });
     },
-    modifyCity: async (req, res) => {
+    modifyItinerary: async (req, res) => {
         let id = req.params.id;
         let itinerary = req.body;
         let actualizado;
