@@ -6,13 +6,13 @@ import {connect} from 'react-redux'
 
 function TarjetaCiudad(props) {
   !props.cities[0] && props.getCities() 
-  console.log(props)
+  
   return (
     <div className="Cofre">
       <h2 className="sc"><button> Search Cities  </button></h2>
       <input
         onChange={(e) => {
-          props.filterCities(props.cities, e.target.value.toLocaleLowerCase().trim());
+          props.filterCities(props.cities, e.target.value.toLowerCase().trim());
         }}
         type="text"
         id="search"

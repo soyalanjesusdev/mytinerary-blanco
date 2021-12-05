@@ -8,6 +8,7 @@ Router.route("/cities")
 
 Router.route("/city/:id") 
   .get(citiesController.getCity) 
+  .post(citiesController.createCity)
   .delete(citiesController.deleteCity) 
   .put(citiesController.modifyCity); 
 
@@ -17,7 +18,8 @@ Router.route("/itinerary")
 .post(itineraryController.createItinerary)
 
 Router.route("/itinerary/:id")
-.get(itineraryController.createItinerary)
+.get(itineraryController.getItinerary)
+.post(itineraryController.createItinerary)
 .delete(itineraryController.deleteItinerary)
 .put(itineraryController.modifyItinerary);
 //ruta para obtener todos los itinerarios

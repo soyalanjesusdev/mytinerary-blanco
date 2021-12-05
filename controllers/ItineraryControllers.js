@@ -2,18 +2,23 @@ const Itinerary = require("../models/Itinerary"); //asi importa el controlador
 
 const itineraryController = {
     getItinerary: (req, res) => {
-        Itinerary.find().then((response) => res.json({
-            response
-        }));
+        Itinerary.find()
+        .populate('City')
+        .then((response) => res.json({response}));
     },
     getItinerary: (req, res) => {
-        Itinerary.findOne({
-            _id: req.params.id
-        }).then((response) => {
-            res.json({
-                response
-            });
+        Itinerary.findOne({ _id: req.params.id}).then((response) => {
+            res.json({response});
         });
+    },
+    getItineraryByCity: (req, res) => {
+        Itinerary.find({ City:{ _id: req.params.id}})
+        .populate('City')
+        .then((response) => {
+            res.json({response})
+        })
+        .catch((err) => console.log(err))
+
     },
     createItinerary: (req, res) => {
         const {
@@ -35,8 +40,11 @@ const itineraryController = {
             duration,
             hashtags,
             comments,
-        }).save.then((response) => res.json(response));
-        console.log(itinerary);
+            city,
+        })
+        .save()
+        .then((response) => res.json({response: {itinerary}}))
+        .catch((err) => console.log(err));
     },
     deleteItinerary: async (req, res) => {
         const id = req.params;
@@ -51,23 +59,12 @@ const itineraryController = {
             success: true
         });
     },
-    modifyItinerary: async (req, res) => {
-        let id = req.params.id;
-        let itinerary = req.body;
-        let actualizado;
-        try {
-            actualizado = await Itinerary.findOneAndUpdate({
-                _id: id
-            }, itinerary, {
-                new: true,
-            });
-        } catch (error) {
-            console.log(error);
-        }
-        res.json({
-            success: actualizado ? true : false
-        });
+    modifyItinerary: (req, res) => {
+        Itinerary.findOneAndUpdate({_id: req.params.id}, {...req.body})
+        .then((response) => res.json({response}))
+        .catch((err) => console.log(err));
     },
-};
+}
+
 
 module.exports = itineraryController;

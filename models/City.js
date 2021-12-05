@@ -2,24 +2,20 @@ const mongoose = require("mongoose"); //importamos mongoose
 const citySchema = new mongoose.Schema({ //creamos el esquema de ciudades
   name: {
     type: String,
-    require: true
+    required: true
   },
   src: {
     type: String,
-    require: true
+    required: true
   },
   country: {
     type: String,
-    require: true
+    required: true
   },
   about: {
     type: String,
-    require: true
+    required: true
   },
-
-    itinerary: [
-      {type: mongoose.Schema.Types.ObjectId, ref: "Itinerary", require: true},
-]
 });
 
 
