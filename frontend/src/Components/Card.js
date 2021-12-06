@@ -24,7 +24,7 @@ function City(props) {
           <Card.ImgOverlay>
             <Card.Title className="colort"> {props.city.name},{props.city.country} </Card.Title>
             
-           
+          
           </Card.ImgOverlay>
           {
             <Card.Text>
@@ -45,10 +45,11 @@ function City(props) {
         </Card>
       
       </div>
-      {props.itineraries ? (
+      {props.itineraries.length > 0 ?(
+      props.itineraries.map ((itineraries) => 
         <Itinerary itineraries={props.itineraries} />
-      ) : (
-        <h1>Under Construction</h1>
+      )): (
+        <h1>Not result found</h1>
       )}
     </>
   )

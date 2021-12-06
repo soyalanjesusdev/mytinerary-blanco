@@ -39,6 +39,7 @@ export default function Itinerary(props) {
                 <div className="tag"> #{hash}</div>
                 ))}
             </div>
+            
               <Button
                 className="btn-warning p-1 fs-6 fw-normal m-1"
                 onClick={() => setOpen(!open)}
