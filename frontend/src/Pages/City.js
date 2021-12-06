@@ -5,11 +5,13 @@ import Footer from "../components/Footer";
 function City() {
 
   return (
-    <>
+    <div class="prueba">
       <Navbar />
+     
       <Card/>
+     
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -20,17 +20,25 @@ export default function Itinerary(props) {
               src={itinerary.src}
               alt="Imagen"
             />
-            <h3>{itinerary.userName}</h3>
-            <div>
-              <span>{itinerary.duration}</span>
-              {costo(itinerary.price).map(() => (
-                <span>💵</span>
-              ))}
-            </div>
-            <div>
+            <h3>{itinerary.name}</h3>
+            <div className="divi">
+                <div className="minidiv">
+                  <div>Likes: {itinerary.likes}</div>
+                </div>
+                <div className="minidiv">
+                    <div>Duration: {itinerary.duration}Hs</div>
+                </div>
+                <div className="minidiv">
+                  {costo(itinerary.price).map(() => (
+                    <div>💵</div>
+                  ))}
+                </div>
+              </div>
+              <div className="hashtag">
               {itinerary.hashtags.map((hash) => (
                 <div className="tag"> #{hash}</div>
-              ))}
+                ))}
+            </div>
               <Button
                 className="btn-warning p-1 fs-6 fw-normal m-1"
                 onClick={() => setOpen(!open)}
@@ -55,7 +63,7 @@ export default function Itinerary(props) {
                 </Link>}
               </div> */}
             </div>
-          </div>
+       
         ))}
     </>
   )

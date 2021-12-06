@@ -22,24 +22,13 @@ function City(props) {
         <Card className="Tarjeta">
           <Card.Img className="car" src={props.city.src} alt="Card image" />
           <Card.ImgOverlay>
-            <Card.Title> {props.city.name},{props.city.country}</Card.Title>
+            <Card.Title className="colort"> {props.city.name},{props.city.country} </Card.Title>
             
-            {/* {
-            <Card.Text>
-            This is a wider card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit
-            longer.
-            </Card.Text>
-          } */}
+           
           </Card.ImgOverlay>
           {
             <Card.Text>
-              {/* {
-                <h2 className="under">
-                  Site under construction, we are working for you
-                  <Badge bg="secondary"></Badge>
-                </h2>
-              } */}
+            
             </Card.Text>
           }
           <div className="buttonpa">
@@ -54,11 +43,12 @@ function City(props) {
               </button>
           </div>
         </Card>
+      
       </div>
       {props.itineraries ? (
         <Itinerary itineraries={props.itineraries} />
       ) : (
-        <h1>...</h1>
+        <h1>Under Construction</h1>
       )}
     </>
   )
