@@ -1,49 +1,50 @@
 const Itinerary = require("../models/Itinerary"); //asi importa el controlador
 
 const itineraryController = {
-    getItinerary: (req, res) => {
+    getItineraries:(req,res)=>{
         Itinerary.find()
-        .populate('City')
-        .then((response) => res.json({response}));
+        .populate('city')
+        .then((response)=> res.json({response}))
+    
     },
     getItinerary: (req, res) => {
         Itinerary.findOne({ _id: req.params.id}).then((response) => {
             res.json({response});
         });
     },
-    getItineraryByCity: (req, res) => {
-        Itinerary.find({ City:{ _id: req.params.id}})
-        .populate('City')
-        .then((response) => {
+    getItinerariesByCity: (req, res) => {
+        Itinerary.find({city: {_id: req.params.city}})
+          .populate("city")
+          .then((response) => {
             res.json({response})
-        })
-        .catch((err) => console.log(err))
-
-    },
+          })
+          .catch((err) => console.log(err))
+      },
     createItinerary: (req, res) => {
         const {
             itineraryName,
-            userName,
-            userImg,
+            name,
+            src,
             price,
             likes,
             duration,
             hashtags,
             comments,
+            city
         } = req.body;
-        const itinerary = new Itinerary({
+        new Itinerary({
             itineraryName,
-            userName,
-            userImg,
+            name,
+            src,
             price,
             likes,
             duration,
             hashtags,
             comments,
-            city,
+            city
         })
         .save()
-        .then((response) => res.json({response: {itinerary}}))
+        .then((response) => res.json({response: {response}}))
         .catch((err) => console.log(err));
     },
     deleteItinerary: async (req, res) => {

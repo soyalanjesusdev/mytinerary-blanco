@@ -12,7 +12,7 @@ function TarjetaCiudad(props) {
       <h2 className="sc"><button> Search Cities  </button></h2>
       <input
         onChange={(e) => {
-          props.filterCities(props.cities, e.target.value.toLowerCase().trim());
+          props.filterCities(props.cities, e.target.value.toLocaleLowerCase().trim());
         }}
         type="text"
         id="search"
@@ -21,7 +21,7 @@ function TarjetaCiudad(props) {
       />
       <div className="cards-contenedor">
         {props.auxiliar.length > 0 ? (
-          props.auxiliar.map((city) => {
+          props.auxiliar.map((city, index) => {
             return (
               <Link to={`/city/${city._id}`}>
                 <Card className="Tarjeta1">

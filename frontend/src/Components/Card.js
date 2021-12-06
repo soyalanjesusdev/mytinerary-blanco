@@ -12,10 +12,11 @@ function City(props) {
 
   useEffect(() => {
   
-    !props.cities[0] && props.getCities() //si no existen cities, traelas
-    props.cities[0] && props.findCity(props.cities, params.id) //si existe cities, encontrame una ciudad por id (los paranms)
-    props.getItineraryByCityId(params.id)
-  }, [props.cities]) //c/vez q se atualiza props.cities: se ejecuta useEff
+    !props.cities[0] && props.getCities() 
+    props.cities[0] && props.findCity(props.cities, params.id) 
+    props.getItinerariesByCityId("61a97f1293493efd7210e30a")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.cities]) 
   console.log(props)
   
   return (
@@ -25,7 +26,12 @@ function City(props) {
         <Card.Img className="car" src={props.city.src} alt="Card image" />
         <Card.ImgOverlay>
           <Card.Title>
-            {props.city.name},{props.city.country}
+            {props.city.name},{props.city.country}, 
+            {props.itineraries ? (
+        <Itinerary itineraries={props.itineraries} />
+      ) : (
+        <h1>...</h1>
+      )}
           </Card.Title>
           {/* {
             <Card.Text>
@@ -65,7 +71,7 @@ function City(props) {
 const mapDispatchToProps = {
   findCity: citiesActions.findCity,
   getCities: citiesActions.getCities,
-  getItineraryByCityId: citiesActions.getItineraryByCityId
+  getItinerariesByCityId: citiesActions.getItinerariesByCityId
 }  
 
 const mapStateToProps =  (state) => {

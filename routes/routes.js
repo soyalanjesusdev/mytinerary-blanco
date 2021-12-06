@@ -14,7 +14,7 @@ Router.route("/city/:id")
 
 
 Router.route("/itinerary")
-.get(itineraryController.getItinerary)
+.get(itineraryController.getItineraries)
 .post(itineraryController.createItinerary)
 
 Router.route("/itinerary/:id")
@@ -22,5 +22,9 @@ Router.route("/itinerary/:id")
 .post(itineraryController.createItinerary)
 .delete(itineraryController.deleteItinerary)
 .put(itineraryController.modifyItinerary);
+
+Router.route("/itineraries/:city")
+.get(itineraryController.getItinerariesByCity)
+
 //ruta para obtener todos los itinerarios
 module.exports = Router; //exportamos el router para poder usarlo en el server.js

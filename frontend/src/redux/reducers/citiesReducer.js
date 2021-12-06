@@ -27,7 +27,7 @@ const citiesReducer = (state = initialState, action) => {
                 city: city,
             }
 
-        case "GET_ALL_ITINERARIES":
+        case "GET_ITINERARY_BY_CITY_ID":
             return {
                 ...state,
                 itineraries: action.payload,

@@ -19,5 +19,5 @@ const citySchema = new mongoose.Schema({ //creamos el esquema de ciudades
 });
 
 
-const City = mongoose.model("City", citySchema); //creamos el modelo de ciudades con el esquema creado
+const City = mongoose.model("city", citySchema); //creamos el modelo de ciudades con el esquema creado
 module.exports = City; //exportamos el modelo de ciudades
