@@ -49,7 +49,8 @@ function City(props) {
       props.itineraries[0] ? (
         <Itinerary itineraries={props.itineraries} />
       ) : (
-        <h1>Not result found</h1>
+        <h1>Not result found <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt=""/></h1>
+        
       )}
     </>
   )
