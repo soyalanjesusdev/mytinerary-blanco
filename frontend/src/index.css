@@ -507,3 +507,10 @@ h2> button:hover {
  h2>button:active {
   transform: scale(0.99);
  }
+
+ .singleCard {
+  height: 20vw;
+  width: 20vw;
+  object-fit: cover;
+  border-radius: 50%;
+}
