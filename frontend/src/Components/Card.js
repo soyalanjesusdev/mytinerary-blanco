@@ -45,10 +45,10 @@ function City(props) {
         </Card>
       
       </div>
-      {props.itineraries.length > 0 ?(
-      props.itineraries.map ((itineraries) => 
+      {
+      props.itineraries[0] ? (
         <Itinerary itineraries={props.itineraries} />
-      )): (
+      ) : (
         <h1>Not result found</h1>
       )}
     </>
