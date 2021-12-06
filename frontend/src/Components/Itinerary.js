@@ -2,16 +2,16 @@ import {Button, Collapse} from "react-bootstrap"
 
 import {useState} from "react"
 
-export default function Itinerary(props) {
-  const [open, setOpen] = useState(false)
+export default function Itinerary(props) { // creamos la funcion itinerary que recibe como parametro props
+  const [open, setOpen] = useState(false) // creamos un estado open que es un booleano y lo inicializamos en false
 
-  function costo(price) {
-    return Array.from({length: price})
+  function costo(price) { // creamos la funcion costo que recibe como parametro price
+    return Array.from({length: price}) // creamos un array de longitud price
   }
   return (
     <>
-      {props.itineraries.length > 0 &&
-        props.itineraries.map((itinerary, index) => (
+      {props.itineraries.length > 0 && // si la longitud de itineraries es mayor a 0 entonces retornamos una lista de itineraries
+        props.itineraries.map((itinerary, index) => ( // creamos un map para recorrer los itineraries y retornar una lista de itineraries
           <div key={index} className="itinerarioCard">
             <h2 className="title">{itinerary.itineraryName}</h2>
             <img
@@ -29,13 +29,13 @@ export default function Itinerary(props) {
                     <div>Duration: {itinerary.duration}Hs</div>
                 </div>
                 <div className="minidiv">
-                  {costo(itinerary.price).map(() => (
+                  {costo(itinerary.price).map(() => (// creamos un map para recorrer el array de costo y retornar una lista de costo 
                     <div>💵</div>
                   ))}
                 </div>
               </div>
               <div className="hashtag">
-              {itinerary.hashtags.map((hash) => (
+              {itinerary.hashtags.map((hash) => ( // creamos un map para recorrer los hashtags y retornar una lista de hashtags
                 <div className="tag"> #{hash}</div>
                 ))}
             </div>
