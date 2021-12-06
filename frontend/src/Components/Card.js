@@ -1,5 +1,5 @@
 import {useParams, Link} from "react-router-dom"
-import {Card, Badge} from "react-bootstrap"
+import {Card} from "react-bootstrap"
 import {connect} from "react-redux"
 import citiesActions from "../redux/actions/citiesActions"
 import {useEffect} from "react"

@@ -1,5 +1,5 @@
 import {Button, Collapse} from "react-bootstrap"
-import {Link} from "react-router-dom"
+
 import {useState} from "react"
 
 export default function Itinerary(props) {
@@ -13,7 +13,7 @@ export default function Itinerary(props) {
       {props.itineraries.length > 0 &&
         props.itineraries.map((itinerary, index) => (
           <div key={index} className="itinerarioCard">
-            <h2>{itinerary.itineraryName}</h2>
+            <h2 className="title">{itinerary.itineraryName}</h2>
             <img
               className="singleCard"
               variant="top"
@@ -50,18 +50,7 @@ export default function Itinerary(props) {
               <Collapse in={open}>
                 <div id="example-collapse-text">Under Construction...</div>
               </Collapse>
-              {/* <div className="d-flex">
-                <Link to="/cities">
-                  <Button className="btn-warning p-1 fs-6 fw-normal m-3">
-                    Back to cities
-                  </Button>
-                </Link>
-                {<Link to="/">
-                  <Button className="btn-warning p-1 fs-6 fw-normal m-3">
-                    Back to Home
-                  </Button>
-                </Link>}
-              </div> */}
+              
             </div>
        
         ))}
