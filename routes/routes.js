@@ -1,6 +1,9 @@
 const citiesController = require("../controllers/CitiesController"); 
 const itineraryController = require("../controllers/itineraryControllers"); 
+const authControllers = require("../controllers/authControllers");
 const Router = require("express").Router();
+const validator = require("../config/validator");
+ 
 
 Router.route("/cities") 
   .get(citiesController.getCities) 
@@ -25,6 +28,9 @@ Router.route("/itinerary/:id")
 
 Router.route("/itineraries/:city")
 .get(itineraryController.getItinerariesByCity)
+
+Router.route('/auth/signUp').post(validator, authControllers.signUpUser).get(authControllers.readUser)
+Router.route('/auth/signIn').post(validator, authControllers.signInUser)
 
 //ruta para obtener todos los itinerarios
 module.exports = Router; //exportamos el router para poder usarlo en el server.js
