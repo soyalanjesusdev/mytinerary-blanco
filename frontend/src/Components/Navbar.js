@@ -29,8 +29,9 @@ const Navegador = () => {
             </Nav.Link>
 
             <NavDropdown title="" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
+              <NavDropdown.Item to="/auth/signUp"  >Sign Up</NavDropdown.Item>
+         
+              <NavDropdown.Item href="#action/3.2">Sign In</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <div className="user">

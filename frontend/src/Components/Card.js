@@ -32,7 +32,7 @@ function City(props) { //creamos una funcion que recibe como parametro props
             </Card.Text>
           }
           <div className="buttonpa">
-            <button>
+            <button >
               <span>Home </span>
               <Link to="/" type="button" className="liquid"></Link>
             </button>

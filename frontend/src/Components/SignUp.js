@@ -1,6 +1,6 @@
 import {useRef} from 'react';
 import{connect} from 'react-redux';
-import {authActions} from '../../redux/actions/authActions';
+import {authActions} from '../redux/actions/authActions';
 
 
 function SignUp(props){
