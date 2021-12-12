@@ -1,3 +1,4 @@
+
 import { Card } from "react-bootstrap";
 import Slider from "react-slick";
 import React, { useEffect} from "react";
@@ -6,12 +7,12 @@ import citiesActions from "../redux/actions/citiesActions";
 
 
 function MultipleRows(props) {
-  console.log(props)
+ 
   useEffect(() => {
     props.getCities();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   const settings = {
     className: "center",
     centerMode: true,
@@ -39,14 +40,18 @@ function MultipleRows(props) {
       },
     ],
   };
-
+// eslint-disable-next-line array-callback-return
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <div className="carrusel">
       <h3 className="Tituloc"> Popular MYtineraries</h3>
       <Slider {...settings}>
         
+      
         {props.cities.length > 0 && props.cities.map((img, index) => {
           
+         
+           
           if(index < 12){
           return (
             <div key={index}>

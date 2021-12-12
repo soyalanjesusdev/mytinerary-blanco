@@ -14,7 +14,7 @@ function City(props) { //creamos una funcion que recibe como parametro props
     props.getItinerariesByCityId(params.id) //llamamos a la accion getItinerariesByCityId
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.cities]) //el useEffect se ejecuta solo una vez, cuando cambia el state
-  console.log(props)
+ 
 
   return (
     <>

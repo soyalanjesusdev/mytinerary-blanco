@@ -2,7 +2,9 @@ const joi = require("joi")
 
 const validator = (req, res, next) => {
     const schema = joi.object({
-        name: joi.string().max(12).min(4).trim().pattern(new RegExp('[a-zA-A]')).messages({
+        name: joi.string(),
+        lastName: joi.string(),
+        email: joi.string().required().max(12).min(4).trim().pattern(new RegExp('[a-zA-A]')).messages({
             'string.empty' : "This field is required",
             'string.min' : "This field must be at least 3 characters long",
         }),
@@ -12,9 +14,8 @@ const validator = (req, res, next) => {
             'string.min' : "This field must be at least 8 characters long",
     
         }),
-        email: joi.string().required(),
+        
         photo: joi.string(),
-        lastName: joi.string(),
         country: joi.string(),
 
 
