@@ -1,9 +1,13 @@
 import {useRef} from 'react';
 import {connect} from 'react-redux';
 import authActions from '../redux/actions/authActions';
+import GoogleLogin from 'react-google-login';
 
 
 function SignUp(props){
+    const responseGoogle = (response) => {
+        console.log(response);
+      }
     const email = useRef();
     const password = useRef();
     const name = useRef();
@@ -105,7 +109,14 @@ function SignUp(props){
                                     </div>
                                 </div>
                                 
-                              <input type="submit" value="Sign Up" className="sign-up-submit"/>
+                            <input type="submit" value="Sign Up" className="sign-up-submit"/>
+                            <GoogleLogin
+                                    clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                                    buttonText="Login"
+                                    onSuccess={responseGoogle}
+                                    onFailure={responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                />,
                             </form>
                         </div>
                     </div>

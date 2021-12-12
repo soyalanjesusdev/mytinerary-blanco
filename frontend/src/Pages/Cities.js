@@ -12,7 +12,6 @@ export default class Cities extends React.Component {
         <Navbar />
         <Header />
         <Video />
-
         <TarjetaCiudad />
         <Footer />
       </div>
