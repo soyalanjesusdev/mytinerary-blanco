@@ -37,7 +37,7 @@ function City(props) { //creamos una funcion que recibe como parametro props
               <Link to="/" type="button" className="liquid"></Link>
             </button>
               <button>
-                <span>Back to Cities</span>
+                <span>Cities</span>
             <Link to="/Cities" type="button" className="liquid">
             </Link>
               </button>

@@ -13,7 +13,7 @@ class App extends React.Component {
           <Route path="/" element={<Home />} />
           <Route path="/cities" element={<Cities />} />
           <Route path="/city/:id" element={<City />} />
-          <Route path="/sign/" element={<Sign />} />
+          <Route path="/auth/signIn" element={<Sign />} />
         </Routes>
       </BrowserRouter>
     );
