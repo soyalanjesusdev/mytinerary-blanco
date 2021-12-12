@@ -5,6 +5,7 @@ const authActions = {
         signupUser: (email, password, name, lastName, photo, country) => {
             return async (dispatch, getState) => {
                 try {
+                    // const token = localStorage.getItem('token');
                     const response = await axios.post("http://localhost:4000/api/users/login", {
                         email,
                         password,
@@ -12,6 +13,11 @@ const authActions = {
                         lastName,
                         photo,
                         country
+                    },
+                    {
+                      /*   headers: {
+                            Authorization: `Bearer ${token}`
+                        } */
                     });
                     dispatch({
                         type: "USER",
@@ -20,6 +26,7 @@ const authActions = {
                         }
                     })
                     if (response.data.success && !response.data.error) {
+                        localStorage.setItem("token", response.data.token);
                         dispatch({
                             type: "NEW_USER",
                             payload: response.data.response

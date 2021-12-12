@@ -3,6 +3,7 @@ const itineraryController = require("../controllers/itineraryControllers");
 const authControllers = require("../controllers/authControllers");
 const Router = require("express").Router();
 const validator = require("../config/validator");
+const passport = require("../config/passport");
  
 
 Router.route("/cities") 

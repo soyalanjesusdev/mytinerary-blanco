@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header.js";
 import Video from "../components/Video.js";
-
 import Footer from "../components/Footer.js";
 import Navbar from "../components/Navbar.js";
 import Main from "../components/Main";

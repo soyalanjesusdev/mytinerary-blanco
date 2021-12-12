@@ -4,9 +4,12 @@ const cors = require("cors"); //importamos cors
 const Router = require("./routes/routes");
 require("./config/database");
 const app = express(); //creamos la aplicacion
+const passport = require("passport");
+
 
 app.use(cors()); //usamos cors
 app.use(express.json()); //usamos express.json
+app.use(passport.initialize());
 app.use("/api", Router); //usamos la ruta /api
 
 app.listen(4000, () => {
