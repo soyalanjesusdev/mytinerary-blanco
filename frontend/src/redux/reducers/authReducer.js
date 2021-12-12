@@ -10,7 +10,7 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload
             }
-        case 'LOGOUT':
+        case 'SIGN_IN_USER':
             return {
                 ...state,
                 user: action.payload

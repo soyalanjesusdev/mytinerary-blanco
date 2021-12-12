@@ -1,50 +1,55 @@
-const bcryptjs = require('bcryptjs');
-const User = require('../models/User');
+const bcryptjs = require("bcryptjs");
+const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 
 const authController = {
     signUpUser: async (req, res) => {
         const {
             name,
             lastName,
-            password,
             photo,
             email,
+            password,
             country
         } = req.body;
+
+        if (password === "") {
+            password = "null";
+        }
         try {
             const userExists = await User.findOne({
-                email
-            })
+                email,
+            });
             if (userExists) {
                 res.json({
                     success: false,
                     error: "The user already exists",
-                    response: null
-                })
+                    response: null,
+                });
             } else {
-                const passwordHash = await bcryptjs.hashSync(password, 10);
+                const passwordHashed = await bcryptjs.hashSync(password, 10);
                 const newUser = new User({
                     name,
                     lastName,
-                    password: passwordHash,
                     photo,
                     email,
-                    country
+                    password: passwordHashed,
+                    country,
                 });
 
                 await newUser.save();
                 res.json({
                     success: false,
                     error: err,
-                    response: null
-                })
+                    response: null,
+                });
             }
         } catch (err) {
             res.json({
                 success: false,
                 error: err,
-                response: null
-            })
+                response: null,
+            });
         }
     },
 
@@ -52,51 +57,57 @@ const authController = {
         const {
             email,
             password
-        } = req.body
+        } = req.body;
         try {
             const emailExists = await User.findOne({
-                email
-            })
+                email,
+            });
             if (emailExists) {
-                let passwordSucceed = bcryptjs.compareSync(password, emailExists.password)
-
+                let passwordSucceed = bcryptjs.compareSync(
+                    password,
+                    emailExists.password
+                );
                 if (passwordSucceed) {
+                    const token = jwt.sign({
+                        ...emailExists
+                    }, process.env.SECRET_KEY);
+                    console.log(token);
                     res.json({
                         success: true,
                         response: {
-                            email
+                            email,
                         },
-                        error: null
-                    }) //respuesta comparala con {email}
+                        error: null,
+                    }); //respuesta comparala con {email}
                 } else {
                     res.json({
                         success: false,
                         response: null,
-                        error: "Password is incorrect"
-                    })
+                        error: "Password is incorrect",
+                    });
                 }
             } else {
                 res.json({
                     success: false,
                     response: null,
-                    error: "Email doesn't exist"
-                })
+                    error: "Email doesn't exist",
+                });
             }
         } catch (error) {
             res.json({
                 success: false,
                 response: null,
-                error: "Email or password doesnt exist"
-            })
+                error: "Email or password doesnt exist",
+            });
         }
     },
 
     readUser: (req, res) => {
         User.find().then((response) => {
             res.json({
-                response
-            })
-        })
-    }
-}
-module.exports = authController
+                response,
+            });
+        });
+    },
+};
+module.exports = authController;
