@@ -1,10 +1,10 @@
 import React from "react";
 import Home from "./pages/Home";
-import Cities from "./pages/Cities.js";
+import Cities from "./pages/Cities";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import City from "./pages/City.js";
-import SignUpPage from "./pages/SignUpPage.js";
-import SignInPage from "./pages/SignInPage.js";
+import City from "./pages/City";
+import SignUpPage from "./pages/SignUpPage";
+import SignInPage from "./pages/SignInPage";
 
 
 class App extends React.Component {
