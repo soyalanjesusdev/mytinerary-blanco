@@ -1,6 +1,7 @@
 import {Button, Collapse} from "react-bootstrap"
-
 import {useState} from "react"
+
+
 
 export default function Itinerary(props) { // creamos la funcion itinerary que recibe como parametro props
   const [open, setOpen] = useState(false) // creamos un estado open que es un booleano y lo inicializamos en false

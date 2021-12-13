@@ -45,10 +45,11 @@ function MultipleRows(props) {
   return (
     <div className="carrusel">
       <h3 className="Tituloc"> Popular MYtineraries</h3>
+     
       <Slider {...settings}>
         
-      
-        {props.cities.length > 0 && props.cities.map((img, index) => {
+    
+        {props.cities.length > 0 && props.cities.map((img, index) => {  // eslint-disable-next-line
           
          
            
@@ -63,8 +64,11 @@ function MultipleRows(props) {
               </Card>
             </div>
           );
+          
 }})}
+
       </Slider>
+      
     </div>
   );
 }

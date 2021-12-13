@@ -7,9 +7,7 @@ function City() {
   return (
     <div class="prueba">
       <Navbar />
-     
       <Card/>
-     
       <Footer />
     </div>
   );

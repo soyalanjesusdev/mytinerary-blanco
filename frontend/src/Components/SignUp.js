@@ -1,6 +1,6 @@
 import {useRef} from 'react';
 import {connect} from 'react-redux';
-import authActions from '../redux/actions/authActions';
+import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
 
 
@@ -30,12 +30,12 @@ function SignUp(props){
     function handleSignUp(e){
         e.preventDefault();
         props.signupUser(
-            email.current.value,
-           password.current.value,
-            name.current.value,
-             lastName.current.value,
-          photo.current.value,
-           country.current.value
+        email.current.value,
+        password.current.value,
+        name.current.value,
+        lastName.current.value,
+        photo.current.value,
+        country.current.value
         )
         email.current.value = '';
         password.current.value = '';
@@ -50,14 +50,14 @@ function SignUp(props){
         <div className="sign">
             <div className="sign-up">
                 <img 
-                src="https://www.freepnglogos.com/uploads/logo-png/logo-png-transparent-background-5.png" 
+                src="../components/assets/wallpaperbetter.jpg"
                 alt=""
                 className="sign-up-logo"
-                 />
-                 <div className="sign-up-form"></div>
-                 <div className="backMyTinerary">
-                     <div className="backFromSignUp">
-                         <h1 className="sign-up-title">Sign Up</h1>
+                />
+                <div className="sign-up-form"></div>
+                <div className="backMyTinerary">
+                    <div className="backFromSignUp">
+                        <h1 className="sign-up-title">Sign Up</h1>
                             <p className="sign-up-subtitle">
                                 Sign up mytinerary</p>
                             <form onSubmit={handleSignUp}>
