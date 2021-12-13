@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import SignIn from "../components/SignIn";
 
 
-export default class SignInPage extends React.Component {
+export default class SingInPage extends React.Component {
   render() {
     return (
       <div className="SignIn">
