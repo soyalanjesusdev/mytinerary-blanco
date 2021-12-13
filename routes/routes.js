@@ -30,7 +30,7 @@ Router.route("/itinerary/:id")
 Router.route("/itineraries/:city")
 .get(itineraryController.getItinerariesByCity)
 
-Router.route('/auth/signup').post(validator, authControllers.signUpUser)
+Router.route('/auth/signup').post(validator, authControllers.signUpUser).get(authControllers.readUser);
 Router.route('/auth/signin').post(authControllers.signInUser)
 
 Router.route("/auth")
