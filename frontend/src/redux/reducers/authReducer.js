@@ -15,10 +15,21 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload
             }
+
+        case "TOKEN":
+            return {
+                ...state,
+                token: action.payload
         
-        default:
+            }
+        case "SIGN_OUT":
+            return {
+                ...state,
+                user: action.payload
+            }   
+
+            default:
             return state
     }
 }
-
 export default authReducer

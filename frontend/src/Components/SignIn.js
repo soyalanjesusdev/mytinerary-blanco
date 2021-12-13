@@ -2,11 +2,20 @@ import {useRef} from 'react';
 import {connect} from 'react-redux';
 import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
+import {useNavigate} from 'react-router-dom';
+import '../form.css'
 
 
 function SingIn(props){
+    let navigate = useNavigate();
+    props.token && navigate("/", {replace: true});
     let responseGoogle = (response) => {
-        console.log(response);
+            props.signInUser(
+              response.profileObj.email,
+              response.profileObj.googleId,
+              true
+            )
+          
     }
     let email = useRef()
     let password = useRef()
@@ -25,6 +34,7 @@ function SingIn(props){
 
     
     }
+   
     return(
         <div className="sign">
             <div className="sign-up">
@@ -36,9 +46,9 @@ function SingIn(props){
                 <div className="sign-up-form"></div>
                 <div className="backMyTinerary">
                     <div className="backFromSignUp">
-                        <h1 className="sign-up-title">Sign Up</h1>
+                        <h1 className="sign-up-title">Sign In</h1>
                             <p className="sign-up-subtitle">
-                                Sign up mytinerary</p>
+                                Sign In mytinerary</p>
                             <form onSubmit={handleSignIn}>
                                 <div className="sign-up-input">
                                     <div className="sign-up-input-email">
@@ -70,6 +80,7 @@ function SingIn(props){
                                     cookiePolicy={'single_host_origin'}
                                 />
                             </form>
+                        
                         </div>
                     </div>
                 </div>

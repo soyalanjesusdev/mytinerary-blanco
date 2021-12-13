@@ -3,6 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import { Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import authActions from "../redux/actions/authActions"
+
+import { connect } from "react-redux";
 
 const Navegador = () => {
   return (
@@ -29,9 +32,13 @@ const Navegador = () => {
             </Nav.Link>
 
             <NavDropdown title="" id="collasible-nav-dropdown">
-              <NavDropdown.Item to="/auth/signUp"  >Sign Up</NavDropdown.Item>
-         
-              <NavDropdown.Item href="#action/3.2">Sign In</NavDropdown.Item>
+              <NavDropdown.Item>
+          <Link className="Link" to="/signup">Sign Up</Link>
+          </NavDropdown.Item>
+              <NavDropdown.Item>
+              <Link className="Link" to="/signin">Sign In</Link>
+              </NavDropdown.Item>
+           
             </NavDropdown>
           </Nav>
           <div className="user">
@@ -68,4 +75,18 @@ const Navegador = () => {
   );
 };
 
-export default Navegador;
+const mapDispatchToProps = { //creamos un objeto con las acciones que vamos a usar
+  signInUser : authActions.signInUser,
+  signOut : authActions.signOut,
+  signInToken: authActions.signInToken
+}
+
+const mapStateToProps = (state) => { //creamos un objeto con las acciones que vamos a usar
+  return { 
+    signInUser : state.authReducer.signInUser,
+    signOutUser : state.authReducer.signOutUser,
+    signInToken: state.authReducer.signInToken
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navegador) //exportamos la

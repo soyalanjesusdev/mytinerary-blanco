@@ -3,8 +3,8 @@ const express = require("express");
 const cors = require("cors"); //importamos cors
 const Router = require("./routes/routes");
 require("./config/database");
-const app = express(); //creamos la aplicacion
 const passport = require("passport");
+const app = express(); //creamos la aplicacion
 
 
 app.use(cors()); //usamos cors

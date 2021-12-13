@@ -7,14 +7,16 @@ const authController = {
         const {
             name,
             lastName,
-            photo,
             email,
             password,
+            country,
+            photo,
             google,
-            country
         } = req.body;
 
-        
+        if (password === "") {
+            password = null
+        }
         try {
             const userExists = await User.findOne({
                 email,
@@ -22,32 +24,29 @@ const authController = {
             if (userExists) {
                 res.json({
                     success: false,
-                    error: "The user already exists",
+                    error: "The email is already registered",
                     response: null,
                 });
             } else {
-                const passwordHashed = await bcryptjs.hashSync(password, 10);
+                const passwordHashed = bcryptjs.hashSync(password, 10);
                 const newUser = new User({
                     name,
                     lastName,
-                    photo,
                     email,
                     password: passwordHashed,
-                    google,
                     country,
+                    photo,
+                    google,
                 });
 
                 await newUser.save();
-                res.json({
-                    success: false,
-                    error: err,
-                    response: null,
-                });
+                const token = jwt.sign({ ...newUser }, process.env.SECRET_KEY)
+                res.json({ success: true, response: { newUser, token }, error: null });
             }
         } catch (err) {
             res.json({
                 success: false,
-                error: err,
+                error: "Email doesn't exist",
                 response: null,
             });
         }
@@ -59,26 +58,40 @@ const authController = {
             password
         } = req.body;
         try {
-            const emailExists = await User.findOne({
-                email,
-            });
-            if (emailExists) {
-                let passwordSucceed = bcryptjs.compareSync(
+            const passwordExists = await User.findOne({email})
+            
+
+         
+            
+            if (passwordExists) {
+            
+                const passwordSucceed = bcryptjs.compareSync(
                     password,
-                    emailExists.password
+                    passwordExists.password
                 );
+            
                 if (passwordSucceed) {
+                   
                     const token = jwt.sign({
-                        ...emailExists
+                        ...passwordExists
                     }, process.env.SECRET_KEY);
-                    console.log(token);
+              
+                   
                     res.json({
                         success: true,
-                        response: {
-                            email,
+                        response: [{
+                            name: passwordExists.name,
+                            lastname: passwordExists.lastname,
+                            email: passwordExists.email,
+                            country: passwordExists.country,
+                            photo: passwordExists.photo,
+                            token: token,
                         },
+                        ],
                         error: null,
+
                     }); //respuesta comparala con {email}
+                
                 } else {
                     res.json({
                         success: false,
@@ -108,6 +121,10 @@ const authController = {
                 response,
             });
         });
+    },
+
+    token: (req, res) => {
+        res.json(req.user)
     },
 };
 module.exports = authController;
