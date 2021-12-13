@@ -10,6 +10,7 @@ const authController = {
             photo,
             email,
             password,
+            google,
             country
         } = req.body;
 
@@ -34,6 +35,7 @@ const authController = {
                     photo,
                     email,
                     password: passwordHashed,
+                    google,
                     country,
                 });
 

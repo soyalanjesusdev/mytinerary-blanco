@@ -9,7 +9,8 @@ const userSchema = mongoose.Schema({
     password:{type:String, required:true},
     country:{type:String, required:true},
     googleUser:{type:Boolean, default:false},
-    itinerariesLiked:[{type:mongoose.Types.ObjectId}]
+    itinerariesLiked:[{type:mongoose.Types.ObjectId}],
+    google:{type:Boolean, default:false},
 })
 
 const User = mongoose.model('user',userSchema)

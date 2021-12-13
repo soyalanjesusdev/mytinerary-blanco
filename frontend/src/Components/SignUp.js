@@ -6,7 +6,19 @@ import GoogleLogin from 'react-google-login';
 
 function SignUp(props){
     const responseGoogle = (response) => {
-        console.log(response);
+        const googleUser = {
+            name:response.profileObj.givenName,
+            lastName:response.profileObj.familyName,
+            email:response.profileObj.email,
+            password:response.profileObj.googleId,
+            country:"Argentina",
+            photo:response.profileObj.imageUrl,
+            google:true
+        }
+        props.signupUser(googleUser)
+    .then((response) => response.data.success)
+    .catch((error) => console.log(error))
+        // console.log(response);
       }
     const email = useRef();
     const password = useRef();
@@ -111,7 +123,7 @@ function SignUp(props){
                                 
                             <input type="submit" value="Sign Up" className="sign-up-submit"/>
                             <GoogleLogin
-                                    clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                                    clientId="517539814891-189a382721hq8enthucm52u5adc6fnga.apps.googleusercontent.com"
                                     buttonText="Login"
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle}
