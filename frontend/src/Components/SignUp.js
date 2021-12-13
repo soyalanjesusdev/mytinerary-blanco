@@ -127,7 +127,7 @@ function SignUp(props){
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
-                                />,
+                                />
                             </form>
                         </div>
                     </div>

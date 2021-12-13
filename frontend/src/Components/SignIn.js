@@ -47,7 +47,7 @@ function SingIn(props){
                                         type="email"
                                         ref={email}
                                         placeholder="Email"
-                                       
+
                                         />
                                     </div>
                                     <div className="sign-up-input-password">
@@ -56,10 +56,9 @@ function SingIn(props){
                                         type="password"
                                         ref={password}
                                         placeholder="Password"
-                                       
+
                                         />
                                     </div>
-
                                 </div>
                                 
                             <input type="submit" value="Sign Up" className="sign-up-submit"/>
@@ -69,7 +68,7 @@ function SingIn(props){
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
-                                />,
+                                />
                             </form>
                         </div>
                     </div>

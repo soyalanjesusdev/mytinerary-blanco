@@ -64,4 +64,4 @@ const authActions = {
             }
     },
 }
-            module.exports = authActions;
+         export default authActions;
