@@ -14,9 +14,7 @@ const authController = {
             country
         } = req.body;
 
-        if (password === "") {
-            password = "null";
-        }
+        
         try {
             const userExists = await User.findOne({
                 email,

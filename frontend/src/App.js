@@ -3,7 +3,9 @@ import Home from "./pages/Home";
 import Cities from "./pages/Cities.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import City from "./pages/City.js";
-import Sign from "./pages/Sign.js";
+import SignUpPage from "./pages/SignUpPage.js";
+import SignInPage from "./pages/SignInPage.js";
+
 
 class App extends React.Component {
   render() {
@@ -13,7 +15,8 @@ class App extends React.Component {
           <Route path="/" element={<Home />} />
           <Route path="/cities" element={<Cities />} />
           <Route path="/city/:id" element={<City />} />
-          <Route path="/auth/signIn" element={<Sign />} />
+          <Route path="/signup" element={<SignUpPage />} />
+           <Route path="/signin" element={<SignInPage />} />
         </Routes>
       </BrowserRouter>
     );

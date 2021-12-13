@@ -109,7 +109,6 @@ function SignUp(props){
                                     </div>
                                     <div className="sign-up-input-country">
                                         <label htmlFor="country">Country</label>
-
                                         <select
                                         type="text"
                                         ref={country}
@@ -140,7 +139,7 @@ function SignUp(props){
 }
 
 const mapDispatchToProps ={
-    signupUser: authActions.signupUser,
+    signupUser: authActions.signupUser
 }
 
 const mapStateToProps = (state) =>{
