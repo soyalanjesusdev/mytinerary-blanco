@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { connect } from "react-redux";
 import authActions from "../redux/actions/authActions";
 import GoogleLogin from "react-google-login";
+import { Link } from "react-router-dom";
 
 function SignUp(props) {
     const responseGoogle = (response) => {
@@ -108,13 +109,19 @@ function SignUp(props) {
 
                             <GoogleLogin
                                 clientId="517539814891-189a382721hq8enthucm52u5adc6fnga.apps.googleusercontent.com"
-                                buttonText="Login"
+                                buttonText="Sign Up with Google"
                                 onSuccess={responseGoogle}
                                 onFailure={responseGoogle}
                                 cookiePolicy={"single_host_origin"}
                             />
                             <input type="submit" value="Sign Up" className="sign-up-submit" />
                         </form>
+                        <div>
+                                <p>Do you already have an account?</p>
+                                <Link to="/signIn" className='linkSignIn'>
+                                    Sign in
+                                </Link>
+                            </div>
                     </div>
                 </div>
             </div>

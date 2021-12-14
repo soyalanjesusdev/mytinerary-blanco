@@ -4,22 +4,25 @@ import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
 import {useNavigate} from 'react-router-dom';
 import '../form.css'
+import {Link} from 'react-router-dom';
 
 
 function SingIn(props){
     let navigate = useNavigate();
     props.token && navigate("/", {replace: true});
+
     let responseGoogle = (response) => {
             props.signInUser(
-              response.profileObj.email,
-              response.profileObj.googleId,
-              true
+            response.profileObj.email,
+            response.profileObj.googleId,
+            true
             )
-          
+
     }
+    localStorage.getItem("token") && !props.token && props.signInToken()
     let email = useRef()
     let password = useRef()
-   
+
 
     function handleSignIn(e){
         e.preventDefault();
@@ -30,16 +33,13 @@ function SingIn(props){
         )
         email.current.value = '';
         password.current.value = '';
-      
-
-    
     }
-   
+
     return(
         <div className="sign">
             <div className="sign-up">
                 <img 
-                src="../components/assets/wallpaperbetter.jpg"
+                src="../"
                 alt=""
                 className="sign-up-logo"
                 />
@@ -60,7 +60,7 @@ function SingIn(props){
 
                                         />
                                     </div>
-                                    <div className="sign-up-input-password">
+                                    <div className="sign-in-input-password">
                                         <label htmlFor="password">Password</label>
                                         <input
                                         type="password"
@@ -71,19 +71,27 @@ function SingIn(props){
                                     </div>
                                 </div>
                                 
-                            <input type="submit" value="Sign Up" className="sign-up-submit"/>
+                            <input type="submit" value="Sign In" className="sign-in-submit"/>
                             <GoogleLogin
                                     clientId="517539814891-189a382721hq8enthucm52u5adc6fnga.apps.googleusercontent.com"
-                                    buttonText="Login"
+                                    buttonText="Sign in with Google"
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
                                 />
                             </form>
-                        
+                            <div>
+                        <p>You don't have an account yet?</p>
+                        <Link to="/signup" className='linkSignIn'>
+                            Sign up
+                        </Link>
+                    </div>
+
                         </div>
                     </div>
+                   
                 </div>
+                
             </div>
 
 
@@ -91,12 +99,14 @@ function SingIn(props){
 }
 
 const mapDispatchToProps ={
-    signInUser: authActions.signInUser
+    signInUser: authActions.signInUser,
+    signInToken: authActions.signInToken,
 }
 
 const mapStateToProps = (state) =>{
     return{
-        user: state.authReducer.user
+        user: state.authReducer.user,
+        token: state.authReducer.token,
     }
 }
 

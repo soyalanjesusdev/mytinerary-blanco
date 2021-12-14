@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+import {toast} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 const authActions = {
         signupUser: (newUser) => {
@@ -20,7 +21,7 @@ const authActions = {
                             response
                         }
                     })
-                    console.log(response);
+                    
                     if (response.data.success && !response.data.error) {
                         localStorage.setItem("token", response.data.response.token);
                         dispatch({
@@ -54,13 +55,14 @@ const authActions = {
                     if (response.data.success) {
                         console.log(response)
                         localStorage.setItem("token", response.data.response[0].token);
+                        toast.success("You have successfully logged in")    
                         dispatch({
                             type: "SIGNIN_USER",
                             payload: response.data.response[0],
                         })
                     } else {
                         alert(response.data.error)
-                        console.log(response)
+                      
                     }
 
                 } catch (error) {
@@ -72,7 +74,7 @@ const authActions = {
         return async(dispatch, getState)=>{
             try{
                 const token = localStorage.getItem("token")
-                const user = await axios.get("http://localhost:4000/api/auth/",{
+                const user = await axios.get("http://localhost:4000/api/auth",{
                 headers:{
                     Authorization: `Bearer ${token}`}
             })
