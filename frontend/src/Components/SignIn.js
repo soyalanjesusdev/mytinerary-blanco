@@ -57,7 +57,6 @@ function SingIn(props){
                                         type="email"
                                         ref={email}
                                         placeholder="Email"
-
                                         />
                                     </div>
                                     <div className="sign-in-input-password">
@@ -66,7 +65,6 @@ function SingIn(props){
                                         type="password"
                                         ref={password}
                                         placeholder="Password"
-
                                         />
                                     </div>
                                 </div>
