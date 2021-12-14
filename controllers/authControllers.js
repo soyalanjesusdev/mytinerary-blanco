@@ -1,130 +1,69 @@
-const bcryptjs = require("bcryptjs");
-const User = require("../models/User");
-const jwt = require("jsonwebtoken");
+const User = require("../models/User")
+const bcryptjs =require("bcryptjs") //encripta y desencripta
+const jwt = require('jsonwebtoken');
 
 const authController = {
-    signUpUser: async (req, res) => {
-        const {
-            name,
-            lastName,
-            email,
-            password,
-            country,
-            photo,
-            google,
-        } = req.body;
+        signUpUser: async (req, res) => {
+        const {name, lastName, email,password,photo,country,google} = req.body
+                 
+        try{
+          const userExists = await User.findOne({email}) //user del nombre del modelo
+          if(userExists){
+            res.json({success:false, error:"The user is already registered", response: null})
+          }else{
+            const passwordHashed = bcryptjs.hashSync(password,10) //salt = string o num. 10 x defecto. num de pasos para encriptar 
 
-        if (password === "") {
-            password = null
-        }
-        try {
-            const userExists = await User.findOne({
-                email,
-            });
-            if (userExists) {
-                res.json({
-                    success: false,
-                    error: "The email is already registered",
-                   
-                });
-            } else {
-                const passwordHashed = bcryptjs.hashSync(password, 10);
-                const newUser = new User({
-                    name,
-                    lastName,
-                    email,
-                    password: passwordHashed,
-                    country,
-                    photo,
-                    google,
-                });
-
-                await newUser.save();
-                const token = jwt.sign({ ...newUser }, process.env.SECRET_KEY)
-                res.json({ success: true, response: { newUser, token }, error: null });
-            }
-        } catch (err) {
-            res.json({
-                success: false,
-                error: "Email doesn't exist",
-                response: null,
-            });
-        }
-    },
-
-    signInUser: async (req, res) => {
-        const {
-            email,
-            password
-        } = req.body;
-        try {
-            const passwordExists = await User.findOne({email})
-            if (passwordExists) {
-                const passwordSucceed = bcryptjs.compareSync(
-                    password,
-                    passwordExists.password
-                );
-                if (passwordSucceed) {
-                    const token = jwt.sign({
-                        ...passwordExists
-                    }, process.env.SECRET_KEY);
+            const newUser = new User(
+             {name, 
+              lastName, 
+              email, 
+              password: passwordHashed, 
+              photo, 
+              country,
+              google
+            }) 
+              console.log(newUser)
               
-                   
-                    res.json({
-                        success: true,
-                        response: [{
-                            name: passwordExists.name,
-                            lastname: passwordExists.lastname,
-                            email: passwordExists.email,
-                            country: passwordExists.country,
-                            photo: passwordExists.photo,
-                            token: token,
-                        },
-                        ],
-                        error: null,
+            const token = jwt.sign({...newUser}, process.env.SECRET_KEY)
+          
+            await newUser.save()
+            res.json({success:true, response: {token,newUser}, error: null})
+          }
 
-                    }); //respuesta comparala con {email}
-                
-                } else {
-                    res.json({
-                        success: false,
-                        response: null,
-                        error: "Password is incorrect",
-                    });
-                }
-            } else {
-                res.json({
-                    success: false,
-                    response: null,
-                    error: "Email doesn't exist",
-                });
+          }catch(error){
+            res.json({success:false, response:null, error:error})
+          }
+        },
+        readUsers : (req,res) => {
+          User.find().then((response) => {
+            res.json({response})
+          })
+        },
+        signInUser: async (req,res) =>{
+          const {email,password} = req.body
+                 
+          try {
+            const userExists = await User.findOne({email})
+            if(!userExists){
+              res.json({success:false,response: null, error:"Email doesn't exist"})
+            }else{
+              let passwordSucceed = bcryptjs.compareSync(password, userExists.password)
+               if(passwordSucceed){
+                 
+                 const token = jwt.sign({...userExists}, process.env.SECRET_KEY)                 
+                  res.json({success: true, response:{name: userExists.name, lastName: userExists.lastName, email: userExists.emal, photo: userExists.photo, token:token}, error:null})//respuesta comparala con {email}
+                }else{
+                  res.json({success: false, response: null, error:"Password is incorrect"})
+               }
             }
-        } catch (error) {
-            res.json({
-                success: false,
-                response: null,
-                error: "Email or password doesnt exist",
-            });
-        }
-    },
+          }catch(error) {
+            res.json({success:false,response: null, error:"Email or password doesnt exist"})
+          }
+        },
+        token: (req, res) => {
+          res.json(req.user)
+        },
+       
+}
 
-    readUser: (req, res) => {
-        User.find().then((response) => {
-            res.json({
-                response,
-            });
-        });
-    },
-    readUser: (req, res) => {
-        City.findOne({
-          $or: [{email: req.body.email}, {phone: req.body.phone}],
-        }).then((response) => {
-          res.json({response})
-        })
-      },
-
-    token: (req, res) => {
-        res.json(req.user)
-    },
-};
-module.exports = authController;
+module.exports = authController

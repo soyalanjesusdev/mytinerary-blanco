@@ -1,10 +1,10 @@
 require("dotenv").config();
+const Router = require("./routes/routes");
+const passport = require("passport");
 const express = require("express");
 const cors = require("cors"); //importamos cors
-const Router = require("./routes/routes");
-require("./config/database");
-const passport = require("passport");
 const app = express(); //creamos la aplicacion
+require("./config/database");
 
 
 app.use(cors()); //usamos cors

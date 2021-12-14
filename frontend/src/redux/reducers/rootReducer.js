@@ -6,9 +6,9 @@ import authReducer from "./authReducer";
 
 
 const rootReducer = combineReducers({
-    citiesReducer : citiesReducer,
-    itinerariesReducer : itinerariesReducer,
-    authReducer : authReducer
+    citiesReducer,
+    itinerariesReducer,
+    authReducer, 
     
 })
 

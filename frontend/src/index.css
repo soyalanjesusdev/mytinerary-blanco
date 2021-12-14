@@ -6,12 +6,31 @@ html * {
 
 }
 
-.navbar * {
+.navbar  {
   backdrop-filter: blur(10px);
   color: rgb(255, 255, 255);
-  background-color: #6a850aea
+  
+  display: flex;
+  justify-content: space-between; 
+}
+.navbar * {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+
+  text-align: center;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-self: center;
 }
 
+.justify-content-start{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
 .main {
   background-color: #6a850aea;
   z-index: 1;
@@ -177,21 +196,114 @@ body::-webkit-scrollbar-thumb {
     padding: 35px 0;
   }
 }
+.white-link{
+  color: white;
+  text-decoration: none;
+  
 
+}
+.navbar-expand .navbar-nav{
+width: 100%;
+align-self: center;
+}
 
-.Welcome {
+.welcome {
+  display: flex;
+  justify-content: space-around !important;
+  align-items: center;
+  width: 100%;
   font-size: 1.5rem;
-  font-weight: 400;
   text-transform: capitalize;
-  margin: 0 auto;
-  text-align: center;
   color: #ffffff;
-  margin-bottom: 2rem;
+  
+}
 
+.contenedorsign{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #ffffff;
+  background-image: url(./components/asset/beach-gfd744dccf_1920.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+  padding: 2rem;
 }
 
 
 
+.formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  width: 45vw;
+  height: 100vh;
+  text-align: start;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+  padding: 5rem;  
+}
+
+.button, input, optgroup, select, textarea{
+
+  width: 100%;
+  margin-top: 2rem;
+ 
+}
+.form{
+height: 100vh;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 2rem;
+}
+.botones{
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+.welcome2{
+  display: flex;
+  width: 50%;
+  justify-content: space-around !important;
+
+}
+
+.btn-ver{
+  background-color: #6a850aea;
+}
+.account-img{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%; 
+  align-self: center;
+}
+#root > div.SignIn > div > div > form > div.already > a > span{
+ text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  background-color: #6a850aea;
+  padding: 10px;
+  margin-top: 2rem;
+  
+}
+#root > div.SignIn > div > div > form > div > div > a > span{
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  background-color: #6a850aea;
+  padding: 10px;
+  margin-top: 2rem;
+}
 #root>div>div.main>div.videos>a {
   letter-spacing: 2px;
   font-size: 15px;

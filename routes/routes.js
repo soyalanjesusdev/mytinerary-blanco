@@ -1,9 +1,9 @@
 const citiesController = require("../controllers/CitiesController"); 
 const itineraryController = require("../controllers/itineraryControllers"); 
 const authControllers = require("../controllers/authControllers");
-const Router = require("express").Router();
 const validator = require("../config/validator");
 const passport = require("../config/passport");
+const Router = require("express").Router();
  
 
 Router.route("/cities") 
@@ -30,11 +30,18 @@ Router.route("/itinerary/:id")
 Router.route("/itineraries/:city")
 .get(itineraryController.getItinerariesByCity)
 
-Router.route('/auth/signup').post(validator, authControllers.signUpUser).get(authControllers.readUser);
-Router.route('/auth/signin').post(authControllers.signInUser)
+Router.route("/auth/signup")
+.get(authControllers.readUsers)
+.post(validator, authControllers.signUpUser)
+
+
+Router.route("/auth/signin")
+.post( authControllers.signInUser) 
 
 Router.route("/auth")
-.post(passport.authenticate('jwt',{ session:false}), authControllers.token)
+.get(passport.authenticate("jwt", {session: false}), authControllers.token)
+//chequea el token y si esta todo bien pasa a la accion: loguearse.
+
 
 //ruta para obtener todos los itinerarios
 module.exports = Router; //exportamos el router para poder usarlo en el server.js

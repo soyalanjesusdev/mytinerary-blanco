@@ -47,7 +47,7 @@ function City(props) { //creamos una funcion que recibe como parametro props
       </div>
       {
       props.itineraries[0] ? ( //si hay itinerarios en el state 
-        <Itinerary itineraries={props.itineraries} /> //llamamos a la funcion Itinerary
+        <Itinerary itineraries={props.itineraries}id={params.id} /> //llamamos a la funcion Itinerary
       ) : ( //si no hay itinerarios en el state
         <h1>Not result found <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt=""/></h1> //mostramos un mensaje
         

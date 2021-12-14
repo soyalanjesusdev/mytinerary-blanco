@@ -1,11 +1,13 @@
-import {Button, Collapse} from "react-bootstrap"
+
 import {useState} from "react"
 
 
 
-export default function Itinerary(props) { // creamos la funcion itinerary que recibe como parametro props
-  const [open, setOpen] = useState(false) // creamos un estado open que es un booleano y lo inicializamos en false
 
+export default function Itinerary(props) { // creamos la funcion itinerary que recibe como parametro props
+// creamos un estado open que es un booleano y lo inicializamos en false
+  const [display, setDisplay] = useState(false)
+  const handleClick = () => setDisplay(!display)
   function costo(price) { // creamos la funcion costo que recibe como parametro price
     return Array.from({length: price}) // creamos un array de longitud price
   }
@@ -41,18 +43,15 @@ export default function Itinerary(props) { // creamos la funcion itinerary que r
                 ))}
             </div>
             
-              <Button
-                className="btn-warning p-1 fs-6 fw-normal m-1"
-                onClick={() => setOpen(!open)}
-                aria-controls="example-fade-text"
-                aria-expanded={open}
-              >
-                {!open ? "View more" : "View less"}
-              </Button>
-              <Collapse in={open}>
-                <div id="example-collapse-text">Under Construction...</div>
-              </Collapse>
-              
+              <div className="btn-ver-mas">
+                              {display && (
+                                  <h4 className="texto-construccion">Under Construction...</h4>
+                              )}
+                              <button onClick={handleClick} className="btn-ver">
+                                  {" "}
+                                  {display ? "View less" : "View more"}
+                            </button>
+                        </div>
             </div>
        
         ))}
