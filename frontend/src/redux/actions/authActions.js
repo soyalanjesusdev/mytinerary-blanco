@@ -24,6 +24,7 @@ const authActions = {
                     
                     if (response.data.success && !response.data.error) {
                         localStorage.setItem("token", response.data.response.token);
+                      
                         dispatch({
                             type: "NEW_USER",
                             payload: response.data.response

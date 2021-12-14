@@ -25,7 +25,7 @@ const authController = {
                 res.json({
                     success: false,
                     error: "The email is already registered",
-                    response: null,
+                   
                 });
             } else {
                 const passwordHashed = bcryptjs.hashSync(password, 10);
@@ -59,19 +59,12 @@ const authController = {
         } = req.body;
         try {
             const passwordExists = await User.findOne({email})
-            
-
-         
-            
             if (passwordExists) {
-            
                 const passwordSucceed = bcryptjs.compareSync(
                     password,
                     passwordExists.password
                 );
-            
                 if (passwordSucceed) {
-                   
                     const token = jwt.sign({
                         ...passwordExists
                     }, process.env.SECRET_KEY);
@@ -122,6 +115,13 @@ const authController = {
             });
         });
     },
+    readUser: (req, res) => {
+        City.findOne({
+          $or: [{email: req.body.email}, {phone: req.body.phone}],
+        }).then((response) => {
+          res.json({response})
+        })
+      },
 
     token: (req, res) => {
         res.json(req.user)

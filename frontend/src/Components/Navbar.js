@@ -73,17 +73,17 @@ const Navegador = (props) => {
                 <>
                   <NavDropdown
                     className="white-link "
-                    title={<FaRegUserCircle className="shadowfilter" />}
+                    title={<FaRegUserCircle className="Nav2007" />}
                     id="basic-nav-dropdown"
                   >
                     <NavDropdown.Item>
                       <Link to="/signup">
-                        <span className="white-link ">Sign Up</span>
+                        <span className="Sign12 ">Sign Up</span>
                       </Link>
                     </NavDropdown.Item>
                     <NavDropdown.Item>
                       <Link to="/signin">
-                        <span className="white-link">Sign In</span>
+                        <span className="Sign12">Sign In</span>
                       </Link>
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -91,13 +91,13 @@ const Navegador = (props) => {
               ) : (
                 <>
                   <NavDropdown
-                    className="white-link "
+                    className="Nav200"
                     title={
                       <img
                         src={
-                          props.user.photo
-                            ? props.user.photo
-                            : "https://imgr.search.brave.com/zSfU6el8hpUOkwT9t_f4MvwcHLUpGMgU3RvAwlixl8k/fit/400/356/ce/1/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20veC9uby1j/YW1lcmEtcHJvaGli/aXRlZC1iYW5uZWQt/Zm9yYmlkZGVuLTUy/MzA2OTUuanBn"
+                          props.passwordExists.photo
+                            ? props.passwordExists.photo
+                            : "https://media.gettyimages.com/vectors/fragile-icon-on-checkerboard-transparent-background-vector-id1251650957?s=612x612"
                         }
                         className="nav-img shadowfilter"
                         alt="user_photo"

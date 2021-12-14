@@ -44,14 +44,14 @@ function MultipleRows(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <div className="carrusel">
+      
       <h3 className="Tituloc"> Popular MYtineraries</h3>
      
       <Slider {...settings}>
         
-    
-        {props.cities.length > 0 && props.cities.map((img, index) => {  // eslint-disable-next-line
+        {props.cities.length > 0 && props.cities.map((img, index) => {  
           
-         
+         // eslint-disable-next-line 
            
           if(index < 12){
           return (
@@ -64,7 +64,7 @@ function MultipleRows(props) {
               </Card>
             </div>
           );
-          
+        // eslint-disable-next-line 
 }})}
 
       </Slider>

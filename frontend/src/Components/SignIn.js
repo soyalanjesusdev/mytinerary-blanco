@@ -1,15 +1,16 @@
+import '../form.css'
 import {useRef} from 'react';
 import {connect} from 'react-redux';
 import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
 import {useNavigate} from 'react-router-dom';
-import '../form.css'
 import {Link} from 'react-router-dom';
 
 
 function SingIn(props){
     let navigate = useNavigate();
     props.token && navigate("/", {replace: true});
+    // localStorage.getItem("token") && !props.token && props.signInToken()
 
     let responseGoogle = (response) => {
             props.signInUser(
