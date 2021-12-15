@@ -47,7 +47,7 @@ function SignInComponent(props){ // creamos el componente SignIn
            
             <div className="googlelogin">
               <GoogleLogin
-              clientId="517539814891-189a382721hq8enthucm52u5adc6fnga.apps.googleusercontent.com"
+              clientId="517539814891-q8v87j6nb35do8c6hla9jq9l612uv205.apps.googleusercontent.com"
               buttonText="Sign in with Google"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}

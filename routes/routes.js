@@ -1,7 +1,7 @@
 const citiesController = require("../controllers/CitiesController"); 
 const itineraryController = require("../controllers/itineraryControllers"); 
 const authControllers = require("../controllers/AuthControllers");
-const activitiesControllers = require("../controllers/activityControllers");
+// const activitiesControllers = require("../controllers/activityControllers");
 const validator = require("../config/validator");
 const passport = require("../config/passport");
 const Router = require("express").Router();
@@ -43,17 +43,17 @@ Router.route("/auth")
 .get(passport.authenticate("jwt", {session: false}), authControllers.token)
 //chequea el token y si esta todo bien pasa a la accion: loguearse.
 
-Router.route('/activities')
-.post(activitiesControllers.postActivity)
-.get(activitiesControllers.returnActivities)
+// Router.route('/activities')
+// .post(activitiesControllers.postActivity)
+// .get(activitiesControllers.returnActivities)
 
-Router.route('/activities/:id')
-.get(activitiesControllers.returnActivity)
-.post(activitiesControllers.postActivity)
-.put(activitiesControllers.modifyActivity)
-.delete(activitiesControllers.deleteActivity)
+// Router.route('/activities/:id')
+// .get(activitiesControllers.returnActivity)
+// .post(activitiesControllers.postActivity)
+// .put(activitiesControllers.modifyActivity)
+// .delete(activitiesControllers.deleteActivity)
 
-Router.route("/activity/:itinerary")
-.get(activitiesControllers.returnActivitiesByItinerary) 
+// Router.route("/activity/:itinerary")
+// .get(activitiesControllers.returnActivitiesByItinerary) 
 //ruta para obtener todos los itinerarios
 module.exports = Router; //exportamos el router para poder usarlo en el server.js

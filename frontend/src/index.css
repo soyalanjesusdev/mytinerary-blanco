@@ -90,8 +90,9 @@ body::-webkit-scrollbar-thumb {
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-.carrusel {
 
+
+.carrusel {
   width: 50%;
   margin: 8rem auto;
   height: 525px;
