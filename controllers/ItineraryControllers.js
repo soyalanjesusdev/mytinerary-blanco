@@ -65,6 +65,10 @@ const itineraryController = { // creamos un objeto itineraryController
         .then((response) => res.json({response})) // respondemos con la informacion del itinerario
         .catch((err) => console.log(err)); // en caso de error respondemos con el error
     },
+
+    
+
+   
 }
 
 

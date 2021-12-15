@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import authAction from "../redux/actions/authActions";
 
 function Navigation(props) {
-  localStorage.getItem("token") && !props.token && props.signInToken()
+  localStorage.getItem("token") && !props.token && props.signInToken() //si hay un token en el localstorage y no hay token en el state, llamamos a la funcion de autenticacion
   return (
     <>
       <Navbar collapseOnSelect fixed="top" className="navbar "  >

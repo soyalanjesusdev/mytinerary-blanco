@@ -7,11 +7,11 @@ import React from 'react';
 import GoogleLogin from 'react-google-login'
 import {useNavigate} from "react-router-dom"
 
-function SignupComponent(props){
-  let navigate = useNavigate()
-  const responseGoogle = (response) => {
+function SignupComponent(props){ // creamos el componente SignIn recibe props 
+  let navigate = useNavigate() //creamos una variable para usar useNavigate
+  const responseGoogle = (response) => { //creamos una funcion para el componente google login
     let googleUser = {
-      name: response.profileObj.givenName,
+      name: response.profileObj.givenName, 
       lastName: response.profileObj.familyName,
       email: response.profileObj.email,
       password: response.profileObj.googleId,
@@ -24,8 +24,8 @@ function SignupComponent(props){
   }
 
   
-  const email = useRef()
-  const password = useRef()
+  const email = useRef() //creamos una variable para usar useRef
+  const password = useRef() 
   const name = useRef()
   const lastName = useRef()
   const photo = useRef()
@@ -35,7 +35,7 @@ function SignupComponent(props){
     e.preventDefault()
 
     props.signupUser({
-      name: name.current.value,
+      name: name.current.value, //creamos un objeto con los valores de los campos del formulario 
       lastName: lastName.current.value,
       email: email.current.value,
       password: password.current.value,      
@@ -44,7 +44,7 @@ function SignupComponent(props){
     }
     )
     
-    name.current.value = ""
+    name.current.value = "" //limpiamos los campos
     lastName.current.value = ""
     email.current.value = ""
     password.current.value = ""
@@ -53,7 +53,7 @@ function SignupComponent(props){
   
   }
   useEffect(()=> {
-    props.token && navigate("/", {replace: true})
+    props.token && navigate("/", {replace: true}) //si hay un token en el localstorage y no hay token en el state, llamamos a la funcion de autenticacion
 
   }, [])
   
@@ -86,7 +86,7 @@ function SignupComponent(props){
             <input className="botones p-1 fs-small btn-form" type="submit" value="Sign Up" />
             <div className="googlelogin">
               <GoogleLogin
-              clientId="976419191370-0f3qd6gishicdla3a3sn99f76pht65v2.apps.googleusercontent.com"
+              clientId="517539814891-189a382721hq8enthucm52u5adc6fnga.apps.googleusercontent.com"
               buttonText="Sign up with Google"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
@@ -110,16 +110,16 @@ function SignupComponent(props){
     )
 }
 
-const mapStateToProps= (state)=>{
+const mapStateToProps= (state)=>{ //creamos una funcion para el state
   return  {
-    newUser: state.authReducer.newUser,
-    token: state.authReducer.token
+    newUser: state.authReducer.newUser, //creamos una variable para usar el state 
+    token: state.authReducer.token //creamos una variable para usar el state
   }
 }
 
-const mapDispatchToProps= {
-    signupUser: authAction.signupUser,
-    signInToken: authAction.signInToken
+const mapDispatchToProps= { //creamos una funcion para el dispatch
+    signupUser: authAction.signupUser,  //creamos una funcion para usar la accion de signupUser
+    signInToken: authAction.signInToken  
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupComponent)

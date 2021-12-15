@@ -1,34 +1,34 @@
 import {useEffect, useRef} from 'react'
 import {Link} from 'react-router-dom';
-import { connect } from "react-redux";
-import authAction from '../redux/actions/authActions'
-import GoogleLogin from 'react-google-login'
-import {useNavigate} from "react-router-dom"
+import { connect } from "react-redux"; 
+import authAction from '../redux/actions/authActions' //importamos la accion de autenticacion 
+import GoogleLogin from 'react-google-login' //importamos el componente de google login
+import {useNavigate} from "react-router-dom" //importamos useNavigate 
 
-function SignInComponent(props){
-  let navigate = useNavigate()
-  const responseGoogle = (response) => {
-    props.signIn(
-      response.profileObj.email,
+function SignInComponent(props){ // creamos el componente SignIn
+  let navigate = useNavigate() //creamos una variable para usar useNavigate
+  const responseGoogle = (response) => { //creamos una funcion para el componente google login
+    props.signIn( // es el nombre de la accion que creamos en el
+      response.profileObj.email,  
       response.profileObj.googleId,
       true
     )
   }
-  localStorage.getItem("token") && !props.token && props.signInToken()
+  localStorage.getItem("token") && !props.token && props.signInToken() //si hay un token en el localstorage y no hay token en el state, llamamos a la funcion de autenticacion
   
-  const email = useRef()
-  const password = useRef()
+  const email = useRef() //creamos una variable para usar useRef
+  const password = useRef() 
   
-  function handleSignIn(e) {
-    e.preventDefault()
+  function handleSignIn(e) { //creamos una funcion para el boton de login
+    e.preventDefault() //prevenimos el comportamiento por defecto del boton
    
-    props.signIn(email.current.value, password.current.value)
+    props.signIn(email.current.value, password.current.value) //llamamos a la funcion de autenticacion 
 
-    email.current.value = ""
-    password.current.value = ""
+    email.current.value = "" //limpiamos los campos
+    password.current.value = ""   //limpiamos los campos
       
   }
-  useEffect(()=> {
+  useEffect(()=> { //useEffect para verificar si hay un token en el localstorage
     props.token && navigate("/", {replace: true})
 
   }, [])
@@ -71,13 +71,14 @@ function SignInComponent(props){
 
 const mapStateToProps= (state)=>{  
   return  {
-    user: state.authReducer.user ,  
-    token: state.authReducer.token 
+    user: state.authReducer.user ,  //creamos una propiedad user con el state de authReducer
+
+    token: state.authReducer.token //creamos una propiedad token con el state de authReducer 
   }
 }
 
-const mapDispatchToProps= {
-    signIn: authAction.signIn,
+const mapDispatchToProps= { // creamos una funcion para el dispatch que vamos a usar
+    signIn: authAction.signIn, //llamamos a la funcion de autenticacion del accion
     signInToken: authAction.signInToken //chequea si hay token o no y lo traduce
 }
 
