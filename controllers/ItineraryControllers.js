@@ -67,6 +67,48 @@ const itineraryController = { // creamos un objeto itineraryController
     },
 
     
+    editComment: async (req, res) => {
+        switch(req.body.type){
+            case "addComment":
+                try {
+                    const newComment = await Itinerary.findOneAndUpdate({_id: req.params.id}, {$push: {comments: {comment: req.body.comment, userId: req.user._id}}}, {new: true}).populate("comments.userId")
+                    if (newComment) {
+                        res.json({success: true, response: newComment.comments})
+                    } else {
+                        throw new Error()
+                    }
+                } catch (error) {
+                    res.json({success: false, response: error.message})
+                }
+                break
+
+            case "editComment": 
+                try {
+                    let editedComment = await Itinerary.findOneAndUpdate({"comments._id": req.params.id}, {$set: {"comments.$.comment": req.body.comment}}, {new: true})
+                    if (editedComment) {
+                        res.json({success: true, response: editedComment.comments})
+                    } else {
+                        throw new Error()
+                    }
+                } catch (error) {
+                    res.json({success: false, response: error.message})
+                }
+                break
+
+            case "deleteComment":
+                try {
+                    let deletedComment = await Itinerary.findOneAndUpdate({"comments._id": req.body.commentId}, {$pull: {comments: {_id: req.body.commentId}}}, {new: true})
+                    if (deletedComment) {
+                        res.json({success: true})
+                    } else {
+                        throw new Error()
+                    }
+                } catch (error) {
+                    res.json({success: false, response: error.message})
+                }
+                break  
+        }
+    },
 
    
 }

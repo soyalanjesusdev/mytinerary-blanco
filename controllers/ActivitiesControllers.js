@@ -2,7 +2,7 @@ const Activity = require('../models/Activity')
 
 const activityControllers = {
     postActivity:(req,res)=>{
-        /* const {name, title, src, price, like, description, hashtags, comment, city}= req.body */
+    
         new Activity(req.body).save()
         .then((response)=> res.json({activity: response, success:true})) //para que en el postman te informe si se guardo o no
         .catch((e) => res.json({error: e.errors, success:false}))
