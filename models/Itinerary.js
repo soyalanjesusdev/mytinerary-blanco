@@ -4,10 +4,12 @@ const itinerarySchema = new mongoose.Schema({ // creamos una variable que hace r
   name: {type: String}, 
   src: {type: String},
   price: {type: Number},
-  likes: {type: Number, default: 0},
+  likes: { type: []},
   duration: {type: Number},
-  hashtags: {type: []},
-  comments: {type: []},
+  comments: [{
+    comment: {type:String, required:true},
+    userId: {type:mongoose.Types.ObjectId, required:true, ref:"user"}
+  }],
   city: {type: mongoose.Types.ObjectId, ref: "city"},
 });
 

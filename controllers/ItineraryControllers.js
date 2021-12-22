@@ -65,50 +65,58 @@ const itineraryController = { // creamos un objeto itineraryController
         .then((response) => res.json({response})) // respondemos con la informacion del itinerario
         .catch((err) => console.log(err)); // en caso de error respondemos con el error
     },
+    getComments: async (req, res) => {
+        try {
+          let commentList = await Comment.find({
+            itinerary: req.body.itinerary,
+          }).populate({ path: "user", select: ["name", "email", "photo"] });
+          res.json({ success: true, error: null, response: commentList });
+        } catch (e) {
+          res.json({ success: false, error: e, response: null });
+        }
+      },
+      postComment: async (req, res) => {
+        const { user, itinerary, message } = req.body;
+        try {
+          await new Comment({ user, itinerary, message }).save();
+          res.json({
+            success: true,
+            response: "Uploaded comment with message: " + message,
+            error: null,
+          });
+        } catch (e) {
+          res.json({ success: false, error: e, response: null });
+          console.error(e);
+        }
+      },
+    editComment: async (req, res) => {
+        try {
+          //si no tengo new true findone devuelve la lista no editada. true me duvuevle la editada, sin true la pasa y dps la edita
+          let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.id }, { message: req.body.message}, {new:true});
+          res.json({
+            success: true,
+            response:commentEdit
+          });
+        } catch (e) {
+          res.json({ success: false, error: e });
+          console.error(e);
+        }
+      },
+      deleteComment: async (req, res) => {
+        try {
+          await Comment.findOneAndDelete({ _id: req.body.id });
+          res.json({
+            success: true,
+            response: "Deleted comment with id" + req.body.id,
+          });
+        } catch (e) {
+          res.json({ success: false, error: e });
+          console.error(e);
+        }
+      },
 
     
-    editComment: async (req, res) => {
-        switch(req.body.type){
-            case "addComment":
-                try {
-                    const newComment = await Itinerary.findOneAndUpdate({_id: req.params.id}, {$push: {comments: {comment: req.body.comment, userId: req.user._id}}}, {new: true}).populate("comments.userId")
-                    if (newComment) {
-                        res.json({success: true, response: newComment.comments})
-                    } else {
-                        throw new Error()
-                    }
-                } catch (error) {
-                    res.json({success: false, response: error.message})
-                }
-                break
-
-            case "editComment": 
-                try {
-                    let editedComment = await Itinerary.findOneAndUpdate({"comments._id": req.params.id}, {$set: {"comments.$.comment": req.body.comment}}, {new: true})
-                    if (editedComment) {
-                        res.json({success: true, response: editedComment.comments})
-                    } else {
-                        throw new Error()
-                    }
-                } catch (error) {
-                    res.json({success: false, response: error.message})
-                }
-                break
-
-            case "deleteComment":
-                try {
-                    let deletedComment = await Itinerary.findOneAndUpdate({"comments._id": req.body.commentId}, {$pull: {comments: {_id: req.body.commentId}}}, {new: true})
-                    if (deletedComment) {
-                        res.json({success: true})
-                    } else {
-                        throw new Error()
-                    }
-                } catch (error) {
-                    res.json({success: false, response: error.message})
-                }
-                break  
-        }
-    },
+    
 
    
 }

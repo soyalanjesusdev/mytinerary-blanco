@@ -3,7 +3,7 @@ const initialState = { // estado inicial objeto
     cities: [],
     auxiliar: [],
     city: [],
-    itineraries: [],
+
   }
   
   const citiesReducer = (state = initialState, action) => { // reducer que recibe el estado y la accion que se va a realizar
@@ -30,17 +30,11 @@ const initialState = { // estado inicial objeto
           ...state,
           city: city,
         }
-  
-      case "GET_ITINERARY_BY_CITY_ID":
-        return {
-          ...state,
-          itineraries: action.payload,
-        }
-  
       default:
-        return state
-    }
-  }
+        return state; // retorna el estado actual
+      }
+      
   
+}
   export default citiesReducer
   
