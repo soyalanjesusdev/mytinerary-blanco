@@ -4,7 +4,7 @@ const activitiesAction = {
   getActivities: (itinerary_id) => {
     return async (dispatch, getState) => {
       let response = await axios.get(
-        "http://localhost:4000/api/activity/" + itinerary_id
+        "http://localhost:4000/api/activities/" + itinerary_id
       )
       dispatch({
         type: "GET_ACTIVITIES",
