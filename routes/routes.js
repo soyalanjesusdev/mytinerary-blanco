@@ -2,7 +2,7 @@ const citiesController = require("../controllers/CitiesController");
 const itineraryController = require("../controllers/itineraryControllers"); 
 const authControllers = require("../controllers/AuthControllers");
 const activityControllers = require("../controllers/ActivityControllers")
-const likesControllers = require("../controllers/likesControllers")
+const likesController = require("../controllers/likesController")
 const validator = require("../config/validator");
 const passport = require("../config/passport");
 const Router = require("express").Router();
@@ -45,7 +45,7 @@ Router.route("/auth")
 //chequea el token y si esta todo bien pasa a la accion: loguearse.
 
 Router.route('/activities')
-.post(activityControllers.createActivity)
+.post(activityControllers.postActivity)
 .get(activityControllers.returnActivities)
 
 Router.route('/activities/:id')
@@ -58,7 +58,7 @@ Router.route("/activity/:itinerary")
 .get(activityControllers.returnActivitiesByItinerary)
 
 Router.route("/like")
-.put(likesControllers.like)
+.put(likesController.like)
 
 Router.route("/comments")
 .get(itineraryController.getComments)

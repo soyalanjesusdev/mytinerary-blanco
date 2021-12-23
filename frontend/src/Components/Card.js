@@ -1,37 +1,59 @@
-import {useParams, Link} from "react-router-dom"
-import {Card} from "react-bootstrap"
+import {useEffect, useState} from "react"
 import {connect} from "react-redux"
-import citiesActions from "../redux/actions/citiesActions"
-import {useEffect} from "react"
+import citiesAction from "../redux/actions/citiesActions"
+import itinerariesAction from '../redux/actions/itinerariesAction'
+// import authAction from '../redux/actions/authAction'
+import {useParams} from "react-router-dom"
 import Itinerary from "./Itinerary"
+import {Link} from "react-router-dom"
+import { Spinner } from "react-bootstrap";
+import useConstructor from "./loading"
 
-function City(props) { //creamos una funcion que recibe como parametro props
-  const params = useParams() //creamos una constante params que recibe el valor de useParams
 
-  useEffect(() => { //creamos una funcion que recibe como parametro props
-    !props.cities[0] && props.getCities() //si no hay ciudades en el state, llamamos a la accion getCities
-    props.cities[0] && props.findCity(props.cities, params.id) //si hay ciudades en el state, llamamos a la accion findCity
-    props.getItinerariesByCityId(params.id) //llamamos a la accion getItinerariesByCityId
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.cities]) //el useEffect se ejecuta solo una vez, cuando cambia el state
- 
+function CardsItineraries(props) {
+  const params = useParams()
+
+  useConstructor(() => {
+    props.setLoad();
+  });
+
+  const [likes, setlikes] = useState("")
+
+  useEffect(() => {
+    !props.cities[0] && props.getCities() 
+    props.cities[0] && props.findCity(props.cities, params.id) 
+    props.getItinerariesByCityId(params.id, false)
+    }, [props.cities]) 
+  
+
+  const back = {
+    backgroundImage: "url(" + props.city.src + ")",
+    width: "100%",
+    height: "70vh",
+    "backgroundRepeat": "no-repeat",
+    "backgroundPosition": "center",
+    "backgroundSize": "cover",
+    "zIndex": "-1",
+  }
 
   return (
     <>
-      <div className="city">
-        <Card className="Tarjeta">
-          <Card.Img className="car" src={props.city.src}  alt="Card image" /> 
-          <Card.ImgOverlay>
-            <Card.Title className="colort"> {props.city.name},{props.city.country} </Card.Title>
-            
-          
-          </Card.ImgOverlay>
-          {
-            <Card.Text>
-            
-            </Card.Text>
+    <div className="fondo-itinerario">
+      <div className="back" style={back}></div>
+      <h1 className="title-carditinerary d-flex justify-content-center">{props.city.name},{props.city.country}</h1>
+      <p className="description container">{props.city.about}</p>
+      {
+        props.isLoading ? (
+          <div className="spinner">
+            <Spinner  animation="border" variant="warning" /></div>)
+           : (
+      props.cities[0] ? (
+        props.itineraries.length > 0 
+        ? (props.itineraries.map((itinerary, index) => (<Itinerary key={index} itinerary={itinerary} user={props.user} activities={props.activities} city={params.id} />))) : (
+          <h1 className="there">There are not itineraries for this city yet...</h1>
+          )): "")
           }
-          <div className="buttonpa">
+         <div className="buttonpa">
             <button >
               <span>Home </span>
               <Link to="/" type="button" className="liquid"></Link>
@@ -42,31 +64,27 @@ function City(props) { //creamos una funcion que recibe como parametro props
             </Link>
               </button>
           </div>
-        </Card>
-      
-      </div>
-      {
-      props.itineraries[0] ? ( //si hay itinerarios en el state 
-        <Itinerary itineraries={props.itineraries}id={params.id} /> //llamamos a la funcion Itinerary
-      ) : ( //si no hay itinerarios en el state
-        <h1>Not result found <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt=""/></h1> //mostramos un mensaje
-        
-      )}
+    </div>
     </>
   )
 }
 
-const mapDispatchToProps = { //creamos un objeto con las acciones que vamos a usar
-  findCity: citiesActions.findCity, //findCity es el nombre de la accion que creamos en el actions
-  getCities: citiesActions.getCities, //getCities es el nombre de la accion que creamos en el actions
-  getItinerariesByCityId: citiesActions.getItinerariesByCityId, //getItinerariesByCityId es el nombre de la accion que creamos en el actions
+const mapDispatchToProps = { 
+  getCities: citiesAction.getCities,
+  findCity: citiesAction.findCity,
+  getItinerariesByCityId: itinerariesAction.getItinerariesByCityId,
+  setLoad: itinerariesAction.setLoad
+  
 }
 
-const mapStateToProps = (state) => { //creamos un objeto con las acciones que vamos a usar
-  return { 
-    cities: state.citiesReducer.cities, //cities es el nombre de la accion que creamos en el reducers
-    city: state.citiesReducer.city, //city es el nombre de la accion que creamos en el reducers
-    itineraries: state.citiesReducer.itineraries, //itineraries es el nombre de la accion que creamos en el reducers
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+    city: state.citiesReducer.city,
+    itineraries: state.itinerariesReducer.itineraries,
+    user: state.authReducer.user,
+    activities: state.activitiesReducer.activities,
+    isLoading: state.itinerariesReducer.isLoading
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(City) //exportamos la funcion City conectada con el redux
+export default connect(mapStateToProps, mapDispatchToProps)(CardsItineraries)
